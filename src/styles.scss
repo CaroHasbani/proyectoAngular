@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+  --blue:#02cde7;
+  --white:#fff;
+}
+
+body {
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: normal;
+  background-image: url("https://cdn.pixabay.com/photo/2016/11/29/05/45/astronomy-1867616_960_720.jpg");
+  // background-size: cover;
+  background-position: center center;
+  color: gray;
+}
+
