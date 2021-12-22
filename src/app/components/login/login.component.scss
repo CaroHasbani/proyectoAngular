@@ -7,9 +7,11 @@
     -webkit-box-shadow: none;
     box-shadow: none;
     background: transparent;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    // border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--white);
     padding-left: 40px;
     padding-right: 20px;
+
 }
 
 .checkbox-primary {
@@ -19,10 +21,14 @@
 a {
   color: var(--blue);
   text-decoration: none;
-  background-color: transparent;
+ // background-color: transparent;
 }
 .form-group {
   margin-bottom: 1rem;
+  ::placeholder{
+    color: var(--white);
+  }
+
 }
 }
 
@@ -36,11 +42,12 @@ a {
 
 .login-wrap {
 position: relative;
-background: var(--white);
+//background: var(--white);
 border-radius: 10px;
 -webkit-box-shadow: 0px 10px 34px -15px rgb(0 0 0 / 24%);
 -moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
 box-shadow: 0px 10px 34px -15px rgb(0 0 0 / 24%);
+border: 1px solid var(--white);
 .icon {
   width: 80px;
   height: 80px;

@@ -4,9 +4,13 @@
   flex-wrap: wrap;
   justify-content: space-around;
 
-  .card {
+
+  .card1 {
     margin-bottom: 20px;
-    background-color: var(--white);
+    //background-color: var(--white);
+    background-color: none ;
+    border: 1px solid var(--white) ;
+
   }
   .btn.btn-primary {
     background:var(--blue);
@@ -16,4 +20,14 @@
     font-size: 15px;
     margin-left: 15px;
   }
+  .card-text{
+    color: var(--white);
+  }
+  .card-title{
+    color: var(--white);
+    font-size: 18px;
+    line-height: 1.9;
+    font-weight: bold;
+  }
+
 }
