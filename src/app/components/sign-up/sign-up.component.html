@@ -47,7 +47,10 @@
                             <button type="submit" class="form-control btn btn-primary rounded submit px-3" (click)="saveUser()"[disabled]="!newUserForm.valid">Sign Up</button>
                         </div>
                     </form>
-                    <p>I'm already a member! <a data-toggle="tab" href="">Sign In</a></p>
+
+
+                    <p>I'm already a member!   <a    routerLinkActive="active" routerLink="/signIn" >Sign In</a></p>
+                    <!-- <p>I'm already a member! <a data-toggle="tab" href="">Sign In</a></p> -->
                     </div>
             </div>
           </div>

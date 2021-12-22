@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit,OnDestroy {
 
   constructor() { }
   userForm=new FormGroup({
@@ -15,6 +16,8 @@ export class LoginComponent implements OnInit {
     user: new FormControl('',[Validators.required]),
     password: new FormControl('',[Validators.required]),
   });
+   //Suscripcion
+   private subscription : Subscription | undefined;
 
   userControl=this.userForm.controls['user'];
   passwordControl=this.userForm.controls['password'];
@@ -22,7 +25,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
    //user:any[] = [];
-
+   ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
+}
   login(){
     //guardo los datos del forms en el array
     // this.user.push(this.userForm.value);

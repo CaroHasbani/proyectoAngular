@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -7,13 +8,17 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss']
 })
-export class SignUpComponent implements OnInit {
+export class SignUpComponent implements OnInit,OnDestroy{
 
   constructor() { }
-
+ //Suscripcion
+ private subscription : Subscription | undefined;
   ngOnInit(): void {
   }
-
+  ngOnDestroy(): void {
+    //Nos desuscribimos
+    this.subscription?.unsubscribe();
+}
   newUserForm=new FormGroup({
     //voy agregando los controles
     userFullName: new FormControl('',[Validators.required,Validators.minLength(3)]),
