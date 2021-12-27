@@ -1,0 +1,27 @@
+<!-- <div class="movie-container">
+  <div *ngFor="let movie of movies" class="card1" style="width: 18rem;" >
+    <img [src]="movie.image.url" class="card-img-top" alt="">
+    <div class="card-body">
+      <h5 class="card-title">{{ movie.title }}</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a class="btn btn-primary" (click)="moreInfo(movie.id)">+ Info</a>
+      <a class="btn btn-primary" >Add to cart</a>
+    </div>
+  </div>
+</div> -->
+<!--angular material-->
+<div class="movie-container">
+  <mat-card class="example-card" *ngFor="let movie of movies" style="width: 18rem;">
+    <mat-card-header>
+      <h5 class="card-title">{{movie.title}}</h5>
+    </mat-card-header>
+    <img mat-card-image [src]="movie.image.url" alt="foto de la pelicula">
+    <mat-card-content>
+      <p class="card-text">algo</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="moreInfo(movie.id)">+info</button>
+      <button mat-button (click)="addToCart(movie)">add to cart</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

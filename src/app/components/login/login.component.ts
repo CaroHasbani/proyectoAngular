@@ -18,7 +18,6 @@ export class LoginComponent implements OnInit,OnDestroy {
   });
    //Suscripcion
    private subscription : Subscription | undefined;
-
   userControl=this.userForm.controls['user'];
   passwordControl=this.userForm.controls['password'];
 
@@ -29,10 +28,22 @@ export class LoginComponent implements OnInit,OnDestroy {
     this.subscription?.unsubscribe();
 }
   login(){
-    //guardo los datos del forms en el array
-    // this.user.push(this.userForm.value);
-    //  console.log(this.user);
+
     this.userForm.reset();
+
     // aca voy a hacer la verificacion de que exista el usurio, no llegue pero va a estar
   }
+
+  // loginValidate() {
+  //   const valido = this.loginService.validarUser(this.emailControl.value, this.passwordControl.value)
+
+  //   if (valido) {
+  //     console.log("Usuario y Contraseña son validos -> Ingresa")
+  //   }
+  //   else {
+  //     console.log("No se le permite el ingreso -> No valido")
+  //   };
+  // }
+
+
 }

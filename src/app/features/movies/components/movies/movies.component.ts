@@ -2,7 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Movie } from 'src/app/models/movie.model';
-import { MoviesService } from 'src/app/services/movies.service';
+import { MoviesService } from '../../services/movies.service';
+import { CartService } from 'src/app/services/cart.service';
+
 
 @Component({
   selector: 'app-movies',
@@ -13,7 +15,8 @@ export class MoviesComponent implements OnInit, OnDestroy{
 
   constructor(
     private movieService: MoviesService,
-    private router: Router
+    private router: Router,
+    public cartService: CartService
   ) { }
 //Suscripcion
 private subscription : Subscription | undefined;
@@ -27,8 +30,12 @@ private subscription : Subscription | undefined;
     this.subscription?.unsubscribe();
   }
   //navigateToDetail(id: string)
-  moreInfo(id: string)
-  {
-    this.router.navigate(['movieInfo', id]);
+  moreInfo(id: string){
+    this.router.navigate(['movies', id]);
+  }
+  addToCart(movie: Movie){
+    // this.router.navigate(['cart', id]); no le pinta andar
+    this.cartService.addMovie(movie);
+
   }
 }

@@ -12,11 +12,10 @@ import { User } from '../models/user.models';
     //providedIn: AppModule
   }
 )
-export class PersonService {
-
-  private url = environment.moviesRestApi + 'Users';
-
+export class UserService {
+ private url = environment.moviesRestApi + 'Users';
   constructor(
+    //inyecto httpClient
     private httpClient: HttpClient
   ) { }
 

@@ -39,4 +39,7 @@ export class SignUpComponent implements OnInit,OnDestroy{
      console.log(this.users);
      this.newUserForm.reset();
   }
+
+// deberia hacer un post y subir los usuarios a la api
+
 }

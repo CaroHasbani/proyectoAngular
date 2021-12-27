@@ -1,5 +1,5 @@
-import { Movie } from '../models/movie.model';
-
+import { Movie } from '../../../models/movie.model';
+// deberia traerlo de la API
 export const moviesMock: Movie[] = [
     {
         "id": "tt0061605",

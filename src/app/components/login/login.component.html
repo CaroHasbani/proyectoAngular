@@ -13,7 +13,7 @@
                   <input type="text"  id="user" name="user" class="form-control " formControlName="user" placeholder="Username" >
                   <div *ngIf="userControl.invalid && (userControl.dirty || userControl.touched)" class="alert alert-danger">
                     <div  *ngIf="userControl.hasError('required')">El usuario es requerido</div>
-                    <div *ngIf="userControl.hasError('minlength')">>El usuario debe ser de 3 o más caracteres</div>
+                    <!-- <div *ngIf="userControl.hasError('minlength')">>El usuario debe ser de 3 o más caracteres</div> -->
                   </div>
                 </div>
 
