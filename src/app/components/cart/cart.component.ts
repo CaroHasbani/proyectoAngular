@@ -20,7 +20,9 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/app/models/movie.model';
+import { MovieAPI } from 'src/app/models/movieAPI.models';
 import { CartService } from 'src/app/services/cart.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-cart',
@@ -29,14 +31,15 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  public list: Movie[] = [];
+ // public list: Movie[] = [];
+  public list: MovieAPI[] = [];
   constructor(private cartService: CartService) { }
-
+  urlPath = environment.imgAPI;
   ngOnInit(): void {
     this.cartService.getList().subscribe(list => this.list = list);
   }
 
-  removeMovie(movie: Movie){
+  removeMovie(movie: MovieAPI){
     this.cartService.removeMovie(movie);
   }
 

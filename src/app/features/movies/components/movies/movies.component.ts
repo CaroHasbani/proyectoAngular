@@ -52,7 +52,7 @@ movies: MovieAPI[] = [];
   // }
 
 
-  // addToCart(movie: MovieAPI){
-  //   this.cartService.addMovie(movie);
-  // }
+  addToCart(movie: MovieAPI){
+    this.cartService.addMovie(movie);
+  }
 }

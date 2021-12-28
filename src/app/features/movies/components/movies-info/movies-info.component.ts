@@ -40,7 +40,7 @@ export class MoviesInfoComponent implements OnInit,OnDestroy {
     //Al salir se desucribe
       this.subscription?.unsubscribe();
   }
-  addToCart(movie: Movie){
+  addToCart(movie: MovieAPI){
 
     this.cartService.addMovie(movie);
 

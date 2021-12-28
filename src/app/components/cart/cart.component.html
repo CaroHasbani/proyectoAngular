@@ -4,7 +4,8 @@
     <mat-card-header>
       <h5 class="card-title">{{movie.title}}</h5>
     </mat-card-header>
-    <img mat-card-image [src]="movie.image.url" alt="foto de la pelicula" style="height: 350px;">
+    <!-- <img mat-card-image [src]="movie.image.url" alt="foto de la pelicula" style="height: 350px;"> -->
+    <img mat-card-image [src]= "urlPath+movie.poster_path" alt="foto de la pelicula">
     <mat-card-content>
       <p class="card-text">aca va la descripcion</p>
     </mat-card-content>
