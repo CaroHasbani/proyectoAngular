@@ -24,16 +24,18 @@ export class MoviesInfoComponent implements OnInit,OnDestroy {
   private subscription : Subscription | undefined;
   urlPath = environment.imgAPI;
 
- movie!:Movie;
+ movie!:MovieAPI;
   ngOnInit(): void {
     // traigo las pelis desde el mock
-    this.subscription = this.movieService.getDetail(this.activatedRoute.snapshot.params['id']).subscribe(
-      movies => {
-        if (movies != undefined) this.movie = movies;
-        else alert('Error during process');
-      });
+    // this.subscription = this.movieService.getDetail(this.activatedRoute.snapshot.params['id']).subscribe(
+    //   movies => {
+    //     if (movies != undefined) this.movie = movies;
+    //     else alert('Error during process');
+    //   });
 
     // traigo desde la api
+    this.subscription = this.movieService.getDetailAPI(this.activatedRoute.snapshot.params['id']).subscribe(
+      response => { this.movie = response;});
 
   }
   ngOnDestroy(): void {
