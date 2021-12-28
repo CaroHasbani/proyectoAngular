@@ -31,14 +31,31 @@ export class SignUpComponent implements OnInit,OnDestroy{
   passwordControl1=this.newUserForm.controls['password1'];
   userMailControl=this.newUserForm.controls['userMail'];
 
-  users:any[] = [];
+  newUser:any[] = [];
 
   saveUser(){
     //guardo los datos del forms en el array
-    this.users.push(this.newUserForm.value);
-     console.log(this.users);
+    this.newUser.push(this.newUserForm.value);
+     console.log(this.newUser);
      this.newUserForm.reset();
   }
+
+  // saveUser() {
+  //   let newUser : User =
+
+  //     {
+  //        id: '100',
+  //        user: this.userFullNameControl.value,
+  //        apellido: this.apellidoControl.value,
+  //        direccion: '  ',
+  //        movil: this.movilControl.value,
+  //        email: this.emailControl.value,
+  //        password: this.passwordControl.value,
+  //     }
+  //    this.userService.addUser(newUser);
+  //   }
+
+
 
 // deberia hacer un post y subir los usuarios a la api
 

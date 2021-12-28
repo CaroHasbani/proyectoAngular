@@ -5,20 +5,22 @@
   justify-content: space-around;
 
 
-  // .card1 {
-  //   margin-bottom: 20px;
+  .card1 {
+    margin-bottom: 20px;
   //   //background-color: var(--white);
-  //   background-color: none ;
+    background-color: none ;
   //   border: 1px solid var(--white) ;
+  border: 1px solid var(--complimentaryColor) ;
 
-  // }
+   }
   .example-card{
     margin-right: 20px;
     margin-bottom: 30px;
     margin-bottom: 20px;
   //background-color: var(--white);
    background-color: none ;
-   border: 1px solid var(--white) ;
+  // border: 1px solid var(--white) ;
+   border: 1px solid var(--complimentaryColor) ;
   }
   .btn.btn-primary {
     background:var(--blue);

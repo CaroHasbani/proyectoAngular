@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from '../../services/movies.service';
 import { CartService } from 'src/app/services/cart.service';
+import { environment } from 'src/environments/environment';
+import { MovieAPI } from 'src/app/models/movieAPI.models';
 
 @Component({
   selector: 'app-movies-info',
@@ -14,30 +16,49 @@ import { CartService } from 'src/app/services/cart.service';
 export class MoviesInfoComponent implements OnInit,OnDestroy {
 
   constructor(
-    private movieService: MoviesService,
+  private movieService: MoviesService,
   private activatedRoute : ActivatedRoute,
   public cartService: CartService
   ) { }
+
   private subscription : Subscription | undefined;
+  urlPath = environment.imgAPI;
 
-
-  movie!:Movie;
+ movie!:Movie;
   ngOnInit(): void {
-
+    // traigo las pelis desde el mock
     this.subscription = this.movieService.getDetail(this.activatedRoute.snapshot.params['id']).subscribe(
       movies => {
         if (movies != undefined) this.movie = movies;
         else alert('Error during process');
       });
+
+    // traigo desde la api
+
   }
   ngOnDestroy(): void {
     //Al salir se desucribe
       this.subscription?.unsubscribe();
   }
   addToCart(movie: Movie){
-    // this.router.navigate(['cart', id]); no le pinta andar
+
     this.cartService.addMovie(movie);
 
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 

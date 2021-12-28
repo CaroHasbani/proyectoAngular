@@ -1,9 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Movie } from 'src/app/models/movie.model';
+//import { Movie } from 'src/app/models/movie.model';
 import { MoviesService } from '../../services/movies.service';
 import { CartService } from 'src/app/services/cart.service';
+import { MovieAPI } from 'src/app/models/movieAPI.models';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -18,24 +20,39 @@ export class MoviesComponent implements OnInit, OnDestroy{
     private router: Router,
     public cartService: CartService
   ) { }
+
 //Suscripcion
 private subscription : Subscription | undefined;
- movies: Movie[] = [];
+ urlPath = environment.imgAPI;
+// movies: Movie[] = [];
+movies: MovieAPI[] = [];
 
   ngOnInit(): void {
-   this.movieService.getList().subscribe( movies => this.movies = movies);
+    // traigo las pelis desde el mock
+  // this.movieService.getList().subscribe( movies => this.movies = movies);
+
+
+    // traigo las pelis desde la api
+      this.movieService.getListAPI().subscribe(response => {
+        this.movies = response.results;
+        console.log(this.movies)
+    });
+
   }
   ngOnDestroy(): void {
     //Nos desuscribimos
     this.subscription?.unsubscribe();
   }
   //navigateToDetail(id: string)
-  moreInfo(id: string){
+  moreInfo(id: number){
     this.router.navigate(['movies', id]);
   }
-  addToCart(movie: Movie){
-    // this.router.navigate(['cart', id]); no le pinta andar
-    this.cartService.addMovie(movie);
+  // addToCart(movie: Movie){
+  //   this.cartService.addMovie(movie);
+  // }
 
-  }
+
+  // addToCart(movie: MovieAPI){
+  //   this.cartService.addMovie(movie);
+  // }
 }

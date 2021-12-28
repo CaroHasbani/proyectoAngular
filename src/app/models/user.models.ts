@@ -1,6 +1,6 @@
 export interface User{
   user:string,
-  mail?:string,
+  email?:string,
   password:string;
   id?:number;
 }

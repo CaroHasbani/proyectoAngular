@@ -8,25 +8,28 @@
     box-shadow: none;
     background: transparent;
     // border: 1px solid rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--white);
+    border: 1px solid var(--complimentaryColor);
     padding-left: 40px;
     padding-right: 20px;
 
 }
 
 .checkbox-primary {
-  color: var(--blue);
+ // color: var(--blue);
+  color: var(--complimentaryColor);
 }
 
 a {
-  color: var(--blue);
+  // color: var(--blue);
+  color: var(--complimentaryColor);
   text-decoration: none;
  // background-color: transparent;
 }
 .form-group {
   margin-bottom: 1rem;
   ::placeholder{
-    color: var(--white);
+   // color: var(--white);
+    color: var(--complimentaryColor);
   }
 
 }

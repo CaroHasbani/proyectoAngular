@@ -1,7 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 :root{
-  --blue:#02cde7;
-  --white:#fff;
+  // --blue:#02cde7;
+  // --white:#fff;
+  --blue:#f48b0c;
+  --white:#1c232d;
+  --boldMainColor:#f48b0c; // titulos
+  --darkNeutralColor:#1c232d;  //fondos oscuros o textos con fondo claro
+  --complimentaryColor:#eee9e6; //se complementa con el main
+  --lightNeutralColor:#46474b; // fondos y elementos de soporte
 }
 
 body {
@@ -9,13 +15,16 @@ body {
   font-size: 16px;
   line-height: 1.8;
   font-weight: normal;
-  background-image: url("https://cdn.pixabay.com/photo/2016/11/29/05/45/astronomy-1867616_960_720.jpg");
-   background-size: cover;
-  background-position: center center;
+ // background-image: url("https://cdn.pixabay.com/photo/2016/11/29/05/45/astronomy-1867616_960_720.jpg");
+ //  background-size: cover;
+  //background-position: center center;
+ //background-color:var(--darkNeutralColor);
+ background-color: #e4c8a6;
  // color: gray;
- color: var(--white);
+ color: var(--complimentaryColor);
+ height: 100%;
 }
 
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
