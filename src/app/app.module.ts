@@ -11,13 +11,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     CartComponent,
     LoginComponent,
     SignUpComponent,
-    MenuComponent,
+    MenuComponent
   ],
   imports: [
      BrowserModule,
@@ -25,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
      AppRoutingModule,
      BrowserAnimationsModule,
      MaterialModule,
-     HttpClientModule
+     HttpClientModule,
+
 
 
      //deberia tener todo esto

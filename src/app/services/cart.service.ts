@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Movie } from '../models/movie.model';
 import { MovieAPI } from '../models/movieAPI.models';
+// import {Swal} from 'sweetalert2/dist/sweetalert2.js';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,11 @@ export class CartService {
 
   addMovie(movie: MovieAPI) {
       this.list.push(movie);
-    //  this.clearCart()
     // console.log(this.list);
+    // Swal("Movie added to cart");
+   //Swal.fire('Movie added to cart')
+   alert ('Movie added to cart');
+
   }
 
   removeMovie(movie: MovieAPI) {
@@ -28,11 +32,8 @@ export class CartService {
   }
   clearCart(){
     return this.list = [];
-
   }
 }
-
-
 
   // getMovies(){
   //   return this.list;

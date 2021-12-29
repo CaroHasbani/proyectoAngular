@@ -1,11 +1,32 @@
+
+//  --boldMainColor:#C62368; // titulos //
+//  --darkNeutralColor:#001220;  //fondos oscuros o textos con fondo claro
+//  --complimentaryColor:#eee9e6; //se complementa con el main
+//  --lightNeutralColor:#FA7268; // fondos y elementos de soporte
+
 :host {
   display: block;
   width: 100%;
-
 }
 .menu{
-  background-color:none;
-  a{
+  // margin-top: 30px;
+  background-color:var(--darkNeutralColor);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  border-bottom: 1px solid #222028;
+  width: 100%;
+  .navbar-brand{
     color:var(--complimentaryColor);
+    line-height: 1.8;
+    font-weight: bolder;
   }
+  .nav-link{
+    color:var(--complimentaryColor);
+    &:active{
+      color:var(--lightNeutralColor);
+    }
+  }
+
 }

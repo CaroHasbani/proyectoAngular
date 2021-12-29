@@ -21,15 +21,12 @@
     <img mat-card-image [src]= "urlPath+movie.poster_path" alt="foto de la pelicula">
     <mat-card-content>
       <!-- <p class="card-text">algo</p> -->
-      <p class="card-text">{{movie.overview}}</p>
+      <!-- <p class="card-text">{{movie.overview}}</p> -->
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button (click)="moreInfo(movie.id)">+info</button>
-      <button mat-button (click)="addToCart(movie)">add to cart</button>
+      <button   class="btnMovie" (click)="moreInfo(movie.id)">+info</button>
+      <button class="btnMovie" (click)="addToCart(movie)">add to cart</button>
     </mat-card-actions>
   </mat-card>
 </div>
-
-
-
 

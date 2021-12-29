@@ -47,10 +47,6 @@ movies: MovieAPI[] = [];
   moreInfo(id: number){
     this.router.navigate(['movies', id]);
   }
-  // addToCart(movie: Movie){
-  //   this.cartService.addMovie(movie);
-  // }
-
 
   addToCart(movie: MovieAPI){
     this.cartService.addMovie(movie);

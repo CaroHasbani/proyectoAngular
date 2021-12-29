@@ -1,12 +1,52 @@
 :host {
-  .about.about--page {
-    padding-top: 80px;
-    padding-bottom: 80px;
+
+
+.movie-container {
+  display: flex;
+  margin: 20px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 100px;
+.card{
+  background-color: var(--none);
+  // border: 1px solid var(--complimentaryColor) ;
+  img{
+  height: 100%;
+  width: 100%;
+  }
+  .card-body{
+    .card-text{
+      color: var(--complimentaryColor);
+    }
+    .card-title{
+      color: var(--lightNeutralColor);
+      font-size: 18px;
+      line-height: 1.9;
+      font-weight: bold;
+    }
+  }
+
+.btnMovie {
+  background:var(--lightNeutralColor);
+  padding: .375rem .75rem;
+  border: 1px solid var(--lightNeutralColor);
+  border-radius: .25rem;
+  color: var(--darkNeutralColor);
+  transition: color .15s ease-in-out, background-color .15s ease-in-out;
+  margin-bottom: 10px;
+  margin-left: 5px;
+
+  &:hover{
+    padding: .375rem .75rem;
+    border: 1px solid var(--boldMainColor);
+    border-radius: .25rem;
+    color: var(--complimentaryColor);
+    background-color: var(--boldMainColor);
+    transition: color .15s ease-in-out, background-color .15s ease-in-out;
+    margin-left: 5px;
+  }
 }
-.section-title {
-  margin-bottom: 40px;
-  position: relative;
-  z-index: 1;
+}
+}
 }
 
-}
