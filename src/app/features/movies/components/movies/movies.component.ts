@@ -6,6 +6,7 @@ import { MoviesService } from '../../services/movies.service';
 import { CartService } from 'src/app/services/cart.service';
 import { MovieAPI } from 'src/app/models/movieAPI.models';
 import { environment } from 'src/environments/environment';
+import { MovieVideo } from 'src/app/models/movieVideo.model';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class MoviesComponent implements OnInit, OnDestroy{
 //Suscripcion
 private subscription : Subscription | undefined;
  urlPath = environment.imgAPI;
-// movies: Movie[] = [];
+
 movies: MovieAPI[] = [];
 
   ngOnInit(): void {
@@ -46,6 +47,7 @@ movies: MovieAPI[] = [];
   //navigateToDetail(id: string)
   moreInfo(id: number){
     this.router.navigate(['movies', id]);
+
   }
 
   addToCart(movie: MovieAPI){

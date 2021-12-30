@@ -7,6 +7,7 @@ import { MoviesService } from '../../services/movies.service';
 import { CartService } from 'src/app/services/cart.service';
 import { environment } from 'src/environments/environment';
 import { MovieAPI } from 'src/app/models/movieAPI.models';
+import { MovieVideo } from 'src/app/models/movieVideo.model';
 
 @Component({
   selector: 'app-movies-info',
@@ -23,29 +24,34 @@ export class MoviesInfoComponent implements OnInit,OnDestroy {
 
   private subscription : Subscription | undefined;
   urlPath = environment.imgAPI;
+  yt=environment.YT;
+
+// para el video!!
+movies!: MovieVideo;
 
  movie!:MovieAPI;
+
   ngOnInit(): void {
-    // traigo las pelis desde el mock
-    // this.subscription = this.movieService.getDetail(this.activatedRoute.snapshot.params['id']).subscribe(
-    //   movies => {
-    //     if (movies != undefined) this.movie = movies;
-    //     else alert('Error during process');
-    //   });
 
     // traigo desde la api
     this.subscription = this.movieService.getDetailAPI(this.activatedRoute.snapshot.params['id']).subscribe(
       response => { this.movie = response;});
-
+      // el video
+      this.subscription = this.movieService.getVideoAPI(this.activatedRoute.snapshot.params['id']).subscribe(
+        response => { this.movies = response;});
   }
+
+  // getVideo(){
+    // solo para chequear que el getVideo funcione
+  //     console.log(this.movies);
+  //     console.log(this.movies.results[0 ].key);
+  // }
   ngOnDestroy(): void {
     //Al salir se desucribe
       this.subscription?.unsubscribe();
   }
   addToCart(movie: MovieAPI){
-
     this.cartService.addMovie(movie);
-
   }
 
 

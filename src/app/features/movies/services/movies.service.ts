@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Movie } from 'src/app/models/movie.model';
+// import { Movie } from 'src/app/models/movie.model';
 import { MovieAPI, MoviesAPI } from 'src/app/models/movieAPI.models';
+import { MovieVideo } from 'src/app/models/movieVideo.model';
 import { environment } from 'src/environments/environment';
-import { MoviesModule } from '../movies.module';
-import { moviesMock } from './movies.mock';
+// import { MoviesModule } from '../movies.module';
+// import { moviesMock } from './movies.mock';
 
 @Injectable()
 export class MoviesService {
@@ -13,17 +14,14 @@ export class MoviesService {
 private url = environment.movieApi;
 private parte1 = environment.firstPart;
 private parte2 = environment.lastPart;
+
+private last=environment.videoAPI2;
+private yt=environment.YT;
   constructor(
      //inyecto httpClient
      private httpClient: HttpClient
 
   ) { }
-
-
-
-  // getList(): Observable<Movie[]> {
-  //   return of(moviesMock);
-  // }
 
 
   // traigo las pelis desde la API
@@ -32,16 +30,13 @@ private parte2 = environment.lastPart;
 
   }
 
-  // getDetail(id: string): Observable<Movie | undefined> {
-  //   return of(moviesMock.find(movie => movie.id === id ))
-  // }
-//-------------------------------------------------------------------//
-  // getDetail(id: number): Observable<Movie | undefined> {
-  //   return of(moviesMock.find(movie => movie.id === id ))
-  // }
   getDetailAPI(id: number) : Observable<MovieAPI>{
     return this.httpClient.get<MovieAPI>(`${this.parte1}/${id}${this.parte2}`);
 
+  }
+  getVideoAPI(id:number):Observable<MovieVideo>{
+    // hace el getVideo
+    return this.httpClient.get<MovieVideo>(`${this.parte1}/${id}/${this.last}`);
   }
 
   getMovieById(id: number): Observable<MoviesAPI> {
@@ -51,13 +46,5 @@ private parte2 = environment.lastPart;
 
 }
 
-// donde se usa?
-  // getMovieById(id : String): Observable<Movie | undefined> {
-  //   return of(moviesMock.find(movies => movies.id === id));
-  // }
-
-  // getMovieByTitle(title : String): Observable<Movie | undefined> {
-  //   return of(moviesMock.find(movies => movies.title === title));
-  // }
 
 

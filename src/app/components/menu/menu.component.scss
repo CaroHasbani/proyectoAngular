@@ -28,5 +28,11 @@
       color:var(--lightNeutralColor);
     }
   }
+  .navbar-toggler{
+    color:var(--complimentaryColor);
+    .navbar-toggler-icon{
+      color:var(--complimentaryColor);
+    }
+  }
 
 }
