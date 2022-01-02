@@ -42,7 +42,7 @@ movies!: MovieVideo;
   }
 
   // getVideo(){
-    // solo para chequear que el getVideo funcione
+  //   // solo para chequear que el getVideo funcione
   //     console.log(this.movies);
   //     console.log(this.movies.results[0 ].key);
   // }

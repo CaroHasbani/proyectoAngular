@@ -13,6 +13,6 @@ export const environment = {
   firstPart:'https://api.themoviedb.org/3/movie/',
   lastPart:'?api_key=fd31753f3bac10778d2c67b3ea7f76d2',
   videoAPI2:'videos?api_key=fd31753f3bac10778d2c67b3ea7f76d2&language=en-US',
-  YT:'https://www.youtube.com/watch?v'
+  YT:'https://www.youtube.com/watch?v='
 };
 

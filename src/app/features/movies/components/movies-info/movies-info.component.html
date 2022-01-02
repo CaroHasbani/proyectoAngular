@@ -4,12 +4,16 @@
       <div class="col-md">
         <img [src]="urlPath+movie.poster_path" alt="foto de la pelicula">
       </div>
-      <div class="col-md">
+      <div class="col-md-6">
         <div class="card-body">
           <h5 class="card-title">{{ movie.title }}</h5>
           <p class="card-text">{{movie.overview}}</p>
           <!-- <button class="btnMovie" (click)="getVideo()">video</button> -->
-          <video [src]='yt+movies.results[0].key'></video>
+          <!-- <video [src]='yt+movies.results[0].key'></video> -->
+          <p class="card-text">Watch the trailer:</p>
+          <iframe width="560" height="315" title="YouTube video player"
+           frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+           allowfullscreen="" class="desktop" [src]='yt+movies.results[0].key'></iframe>
           <p class="card-text"> Release date: {{movie.release_date}}</p>
           <p class="card-text"> Original languaje: {{movie. original_language}}</p>
           <button class="btnMovie" (click)="addToCart(movie)">add to cart</button>
