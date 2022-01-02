@@ -1,23 +1,21 @@
 <div class="movie-container">
-  <div class="card mb-3" style="max-width: 800px;">
+  <div class="card mb-3" >
     <div class="row g-0">
-      <div class="col-md">
+      <div class="col-md-5">
         <img [src]="urlPath+movie.poster_path" alt="foto de la pelicula">
       </div>
       <div class="col-md-6">
         <div class="card-body">
-          <h5 class="card-title">{{ movie.title }}</h5>
+          <h4 class="card-title">{{ movie.title }}</h4>
           <p class="card-text">{{movie.overview}}</p>
           <!-- <button class="btnMovie" (click)="getVideo()">video</button> -->
-          <!-- <video [src]='yt+movies.results[0].key'></video> -->
-          <p class="card-text">Watch the trailer:</p>
-          <iframe width="560" height="315" title="YouTube video player"
+          <h5 class="card-title">Watch the trailer:</h5>
+           <iframe width="560" height="315" title="YouTube video player"
            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-           allowfullscreen="" class="desktop" [src]='yt+movies.results[0].key'></iframe>
+           allowfullscreen="" class="desktop" [src]='getMovieURL()' ></iframe>
           <p class="card-text"> Release date: {{movie.release_date}}</p>
-          <p class="card-text"> Original languaje: {{movie. original_language}}</p>
-          <button class="btnMovie" (click)="addToCart(movie)">add to cart</button>
-
+          <p class="card-text"> Original language: {{movie. original_language}}</p>
+          <button class="btnMovie" (click)="addToCart(movie)">Add to cart</button>
         </div>
       </div>
     </div>

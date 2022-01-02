@@ -10,25 +10,33 @@
     margin-right: 20px;
     margin-bottom: 30px;
     margin-bottom: 20px;
-    background-color: var(--complimentaryColor);
+    // background-color: var(--complimentaryColor);
+    background-color: var(--none);
     border: 1px solid var(--complimentaryColor) ;
     //justify-content: space-around;
     text-align: center;
-    mat-card-header {
-      text-align: center;
-      justify-content: center;
-      .card-text{
-        color: var(--darkNeutralColor);
-        // text-align: center;
-      }
-      .card-title{
-        color: var(--lightNeutralColor);
-        font-size: 18px;
-        line-height: 1.9;
-        font-weight: bold;
-        // text-align: center;
-      }
-    }
+    // mat-card-header {
+    //   text-align: center;
+    //   justify-content: center;
+    //   .card-text{
+    //     color: var(--darkNeutralColor);
+    //     // text-align: center;
+    //   }
+    //   .card-title{
+    //     color: var(--lightNeutralColor);
+    //     font-size: 18px;
+    //     line-height: 1.9;
+    //     font-weight: bold;
+    //     // text-align: center;
+    //   }
+    // }
+  }
+  .card-title{
+    color: var(--complimentaryColor);
+    font-size: 18px;
+    line-height: 1.9;
+    font-weight: bold;
+    text-align: start;
   }
 
   .btnMovie {

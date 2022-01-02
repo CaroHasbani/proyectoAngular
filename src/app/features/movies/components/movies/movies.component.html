@@ -13,19 +13,16 @@
 
 <div class="movie-container">
   <mat-card class="example-card" *ngFor="let movie of movies" style="width: 18rem;">
-    <mat-card-header>
+    <!-- <mat-card-header>
       <h5 class="card-title">{{movie.title}}</h5>
-    </mat-card-header>
-    <!-- <img mat-card-image [src]="movie.image.url" alt="foto de la pelicula"> -->
-    <!-- <img mat-card-image [src]="movie.poster_path" alt="foto de la pelicula"> -->
-    <img mat-card-image [src]= "urlPath+movie.poster_path" alt="foto de la pelicula">
-    <mat-card-content>
-      <!-- <p class="card-text">algo</p> -->
-      <!-- <p class="card-text">{{movie.overview}}</p> -->
-    </mat-card-content>
+    </mat-card-header> -->
+    <img mat-card-image  (click)="moreInfo(movie.id)" [src]= "urlPath+movie.poster_path" alt="foto de la pelicula">
+    <!-- <mat-card-content>
+    </mat-card-content> -->
     <mat-card-actions>
-      <button   class="btnMovie" (click)="moreInfo(movie.id)">+info</button>
-      <button class="btnMovie" (click)="addToCart(movie)">add to cart</button>
+      <!-- <button   class="btnMovie" (click)="moreInfo(movie.id)">+info</button> -->
+      <!-- <button class="btnMovie" (click)="addToCart(movie)">add to cart</button> -->
+      <h5 class="card-title">{{movie.title}}</h5>
     </mat-card-actions>
   </mat-card>
 </div>

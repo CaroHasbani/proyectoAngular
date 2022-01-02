@@ -8,6 +8,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { environment } from 'src/environments/environment';
 import { MovieAPI } from 'src/app/models/movieAPI.models';
 import { MovieVideo } from 'src/app/models/movieVideo.model';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-movies-info',
@@ -19,7 +20,8 @@ export class MoviesInfoComponent implements OnInit,OnDestroy {
   constructor(
   private movieService: MoviesService,
   private activatedRoute : ActivatedRoute,
-  public cartService: CartService
+  public cartService: CartService,
+  private sanitizer: DomSanitizer
   ) { }
 
   private subscription : Subscription | undefined;
@@ -46,13 +48,19 @@ movies!: MovieVideo;
   //     console.log(this.movies);
   //     console.log(this.movies.results[0 ].key);
   // }
-  ngOnDestroy(): void {
-    //Al salir se desucribe
-      this.subscription?.unsubscribe();
+
+  getMovieURL() {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.yt + this.movies?.results[0].key);
   }
   addToCart(movie: MovieAPI){
     this.cartService.addMovie(movie);
   }
+
+  ngOnDestroy(): void {
+    //desuscripcion
+      this.subscription?.unsubscribe();
+  }
+
 
 
 

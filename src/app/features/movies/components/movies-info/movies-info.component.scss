@@ -1,6 +1,4 @@
 :host {
-
-
 .movie-container {
   display: flex;
   margin: 20px;
@@ -9,21 +7,33 @@
   margin-top: 100px;
 .card{
   background-color: var(--none);
-  // border: 1px solid var(--complimentaryColor) ;
-  img{
-  height: 100%;
-  width: 100%;
-  }
+  border: 1px solid var(--none) ;
+  // max-width: 900px;
+   border: 1px solid var(--none);
+  // img{
+  // height: 100%;
+  // width: 100%;
+  // }
   .card-body{
+
     .card-text{
       color: var(--complimentaryColor);
+      text-align: justify;
     }
-    .card-title{
-      color: var(--lightNeutralColor);
-      font-size: 18px;
-      line-height: 1.9;
-      font-weight: bold;
-    }
+
+      h4{
+        color: var(--lightNeutralColor);
+        font-size: 18px;
+        line-height: 1.9;
+        font-weight: bold;
+      }
+      h5{
+        font-weight: bold;
+        color: var(--lightNeutralColor);
+        font-size: 16px;
+        line-height: 1.3;
+      }
+
   }
 
 .btnMovie {
