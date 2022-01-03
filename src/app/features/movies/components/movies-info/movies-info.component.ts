@@ -34,7 +34,6 @@ movies!: MovieVideo;
  movie!:MovieAPI;
 
   ngOnInit(): void {
-
     // traigo desde la api
     this.subscription = this.movieService.getDetailAPI(this.activatedRoute.snapshot.params['id']).subscribe(
       response => { this.movie = response;});
@@ -46,12 +45,13 @@ movies!: MovieVideo;
   // getVideo(){
   //   // solo para chequear que el getVideo funcione
   //     console.log(this.movies);
-  //     console.log(this.movies.results[0 ].key);
+  //     console.log(this.movies.results[0].key);
   // }
 
   getMovieURL() {
     return this.sanitizer.bypassSecurityTrustResourceUrl(this.yt + this.movies?.results[0].key);
   }
+
   addToCart(movie: MovieAPI){
     this.cartService.addMovie(movie);
   }

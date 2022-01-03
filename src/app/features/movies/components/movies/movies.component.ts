@@ -24,14 +24,12 @@ export class MoviesComponent implements OnInit, OnDestroy{
 
 //Suscripcion
 private subscription : Subscription | undefined;
- urlPath = environment.imgAPI;
-
+urlPath = environment.imgAPI;
 movies: MovieAPI[] = [];
 
   ngOnInit(): void {
     // traigo las pelis desde el mock
   // this.movieService.getList().subscribe( movies => this.movies = movies);
-
 
     // traigo las pelis desde la api
       this.movieService.getListAPI().subscribe(response => {
@@ -47,7 +45,6 @@ movies: MovieAPI[] = [];
   //navigateToDetail(id: string)
   moreInfo(id: number){
     this.router.navigate(['movies', id]);
-
   }
 
   addToCart(movie: MovieAPI){

@@ -16,23 +16,19 @@ private parte1 = environment.firstPart;
 private parte2 = environment.lastPart;
 
 private last=environment.videoAPI2;
-private yt=environment.YT;
+//private yt=environment.YT;
   constructor(
      //inyecto httpClient
      private httpClient: HttpClient
-
   ) { }
-
 
   // traigo las pelis desde la API
   getListAPI(): Observable<MoviesAPI>{
     return this.httpClient.get<MoviesAPI>(this.url);
-
   }
 
   getDetailAPI(id: number) : Observable<MovieAPI>{
     return this.httpClient.get<MovieAPI>(`${this.parte1}/${id}${this.parte2}`);
-
   }
   getVideoAPI(id:number):Observable<MovieVideo>{
     // hace el getVideo
