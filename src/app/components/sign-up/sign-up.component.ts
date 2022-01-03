@@ -1,6 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { RegisterService } from 'src/app/services/register.service';
+import { User } from 'src/app/models/user.models';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -10,53 +13,56 @@ import { Subscription } from 'rxjs';
 })
 export class SignUpComponent implements OnInit,OnDestroy{
 
-  constructor() { }
+constructor(
+    private userService: UserService,
+    private registerService: RegisterService) { }
+
+
  //Suscripcion
  private subscription : Subscription | undefined;
+
+
   ngOnInit(): void {
+    const user=this.newUserForm.controls['userFullName'];
+    const password=this.newUserForm.controls['password1'];
+    const mail=this.newUserForm.controls['userMail'];
+    this.subscription=this.userService.getUserList().subscribe(user=>this.user=user);
   }
-  ngOnDestroy(): void {
-    //Nos desuscribimos
-    this.subscription?.unsubscribe();
-}
+
   newUserForm=new FormGroup({
     //voy agregando los controles
-    userFullName: new FormControl('',[Validators.required,Validators.minLength(3)]),
-    userMail: new FormControl('',[Validators.required]),
+    userFullName: new FormControl('',[Validators.required]),
+    userMail: new FormControl('',[Validators.email,Validators.required]),
     password1: new FormControl('',[Validators.required,Validators.minLength(8)]),
     passwordConfirm:new FormControl('',[Validators.required]),
   });
 
-  userFullNameControl=this.newUserForm.controls['userFullName'];
-  passwordControl1=this.newUserForm.controls['password1'];
-  userMailControl=this.newUserForm.controls['userMail'];
 
-  newUser:any[] = [];
+  userControl=this.newUserForm.controls['userFullName'];
+  mailControl=this.newUserForm.controls['userMail'];
+  passwordControl=this.newUserForm.controls['password1'];
+  passwordConfirmControl=this.newUserForm.controls['passwordConfirm'];
 
-  saveUser(){
-    //guardo los datos del forms en el array
-    this.newUser.push(this.newUserForm.value);
-     console.log(this.newUser);
-     this.newUserForm.reset();
-  }
+  user:User[]=[];
 
-  // saveUser() {
-  //   let newUser : User =
+  createUser(){
+    if (this.passwordControl === this. passwordConfirmControl ){
+      const user=this.userControl.value;
+    const mail= this.mailControl.value;
+    const password= this.passwordControl.value;
+    this.registerService.createUser(user,mail,password).subscribe(response=>console.log(response));
+    this.newUserForm.reset();
+    alert("Registro exitoso")
+    }
+    else{
+      alert("Las contraseñas no coinciden")
+    }
+}
 
-  //     {
-  //        id: '100',
-  //        user: this.userFullNameControl.value,
-  //        apellido: this.apellidoControl.value,
-  //        direccion: '  ',
-  //        movil: this.movilControl.value,
-  //        email: this.emailControl.value,
-  //        password: this.passwordControl.value,
-  //     }
-  //    this.userService.addUser(newUser);
-  //   }
+  ngOnDestroy(): void {
+    //Nos desuscribimos
+    this.subscription?.unsubscribe();
+}
 
-
-
-// deberia hacer un post y subir los usuarios a la api
 
 }

@@ -29,15 +29,6 @@ import { HttpClientModule } from '@angular/common/http';
      MaterialModule,
      HttpClientModule,
 
-
-
-     //deberia tener todo esto
-    // BrowserModule,
-    // FormsModule,
-    // ReactiveFormsModule,
-    // AppRoutingModule,
-    // HttpClientModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

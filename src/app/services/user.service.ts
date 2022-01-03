@@ -28,9 +28,5 @@ export class UserService {
   getById(id: string): Observable<User> {
     return this.httpClient.get<User>(`${this.url}/${id}`);
   }
-  // addUser(register:FormGroup){
-  //   this.User=newUser;
-  //   return this.httpClient.post<User[]>(this.url);
 
-  // }
 }
