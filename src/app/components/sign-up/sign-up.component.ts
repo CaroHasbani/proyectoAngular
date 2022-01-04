@@ -46,7 +46,7 @@ constructor(
   user:User[]=[];
 
   createUser(){
-    if (this.passwordControl === this. passwordConfirmControl ){
+    if (this.passwordControl.value === this. passwordConfirmControl.value ){
       const user=this.userControl.value;
     const mail= this.mailControl.value;
     const password= this.passwordControl.value;
