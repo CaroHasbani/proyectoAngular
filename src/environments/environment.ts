@@ -14,6 +14,7 @@ export const environment = {
   lastPart:'?api_key=fd31753f3bac10778d2c67b3ea7f76d2',
   videoAPI2:'videos?api_key=fd31753f3bac10778d2c67b3ea7f76d2&language=en-US',
   // YT:'https://www.youtube.com/watch?v='
-  YT: 'https://www.youtube.com/embed/'
+  YT: 'https://www.youtube.com/embed/',
+  cartRestApi: "http://localhost:3000/api/cart"
 };
 

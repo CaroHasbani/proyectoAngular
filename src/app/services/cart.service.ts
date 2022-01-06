@@ -1,43 +1,40 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Movie } from '../models/movie.model';
-import { MovieAPI } from '../models/movieAPI.models';
-// import {Swal} from 'sweetalert2/dist/sweetalert2.js';
+import { environment } from 'src/environments/environment';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
- // private list: Movie[] = [];
-  private list: MovieAPI[] = [];
-  constructor() { }
 
-  getList(): Observable<MovieAPI[]> {
-    return of(this.list);
-  }
+  url=environment.cartRestApi
+  constructor(
+    private httpClient:HttpClient
+  ) { }
 
-  addMovie(movie: MovieAPI) {
-      this.list.push(movie);
-    // console.log(this.list);
-    // Swal("Movie added to cart");
-   //Swal.fire('Movie added to cart')
-   alert ('Movie added to cart');
-
-  }
-
-  removeMovie(movie: MovieAPI) {
-    // tengo que remover del array el movie que coincida
-    let index = this.list.indexOf(movie);
-   return this.list.splice(index, 1);
-  }
-  clearCart(){
-    return this.list = [];
-  }
+getList():Observable<any[]>{
+  return this.httpClient.get<any[]>(this.url)
 }
 
-  // getMovies(){
-  //   return this.list;
+addMovie(id: number, title:string, poster_path:string):Observable<boolean>{
+  return this.httpClient.post<boolean>(this.url,{
+  id,
+  title,
+  poster_path
+  })
+}
+
+removeMovie(id:number):Observable<any>{
+  return this.httpClient.delete<any>(`${this.url}?id=${id}`)
+}
+
+  // clearCart(){
+  //   return this.list = [];
   // }
+}
 
 
 

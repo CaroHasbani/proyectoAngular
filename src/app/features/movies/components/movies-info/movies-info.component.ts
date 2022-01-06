@@ -52,8 +52,12 @@ movies!: MovieVideo;
     return this.sanitizer.bypassSecurityTrustResourceUrl(this.yt + this.movies?.results[0].key);
   }
 
-  addToCart(movie: MovieAPI){
-    this.cartService.addMovie(movie);
+  addToCart(){
+    const id= this.movie.id
+    const title= this.movie.title
+    const poster_path=this.movie.poster_path
+  this.cartService.addMovie(id, title,poster_path).subscribe(response=>console.log(response));
+  alert("movie added")
   }
 
   ngOnDestroy(): void {

@@ -7,6 +7,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { MovieAPI } from 'src/app/models/movieAPI.models';
 import { environment } from 'src/environments/environment';
 import { MovieVideo } from 'src/app/models/movieVideo.model';
+import { NumberInput } from '@angular/cdk/coercion';
 
 
 @Component({
@@ -47,7 +48,7 @@ movies: MovieAPI[] = [];
     this.router.navigate(['movies', id]);
   }
 
-  addToCart(movie: MovieAPI){
-    this.cartService.addMovie(movie);
-  }
+  // addToCart(id:number){
+  //   this.cartService.addMovie(id);
+  // }
 }

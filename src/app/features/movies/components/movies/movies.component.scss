@@ -2,7 +2,6 @@
   display: flex;
   margin: 20px;
   flex-wrap: wrap;
-  //justify-content: space-around;
   justify-content: center;
   margin-top: 100px;
 
@@ -10,30 +9,10 @@
     margin-right: 20px;
     margin-bottom: 30px;
     margin-bottom: 20px;
-    // background-color: var(--complimentaryColor);
     background-color: var(--none);
     border: 1px solid var(--complimentaryColor) ;
-    //justify-content: space-around;
     text-align: center;
-    // mat-card-header {
-    //   text-align: center;
-    //   justify-content: center;
-    //   .card-text{
-    //     color: var(--darkNeutralColor);
-    //     // text-align: center;
-    //   }
-    //   .card-title{
-    //     color: var(--lightNeutralColor);
-    //     font-size: 18px;
-    //     line-height: 1.9;
-    //     font-weight: bold;
-    //     // text-align: center;
-    //   }
-    // }
-      // &:hover{
-      //   background-color: aqua;
-      // }
-  }
+
   .card-title{
     color: var(--complimentaryColor);
     font-size: 18px;
@@ -41,29 +20,25 @@
     font-weight: bold;
     text-align: start;
   }
-
-  .btnMovie {
-    background:var(--lightNeutralColor);
-    padding: .375rem .75rem;
-    border: 1px solid var(--lightNeutralColor);
-    border-radius: .25rem;
-    color: var(--darkNeutralColor);
-    transition: color .15s ease-in-out, background-color .15s ease-in-out;
-    margin-bottom: 10px;
-    margin-left: 5px;
-
-    &:hover{
-      padding: .375rem .75rem;
-      border: 1px solid var(--boldMainColor);
-      border-radius: .25rem;
-      color: var(--complimentaryColor);
-      background-color: var(--boldMainColor);
-      transition: color .15s ease-in-out, background-color .15s ease-in-out;
-      margin-left: 5px;
-    }
-  }
-
-
-
 }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

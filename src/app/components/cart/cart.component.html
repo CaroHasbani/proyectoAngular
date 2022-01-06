@@ -1,19 +1,18 @@
 
 <div class="movie-container">
   <div class="container">
-    <button  class="btnCart"  (click)="clearCart()">Clear all</button>
+    <!-- <button  class="btnCart"  (click)="clearCart()">Clear all</button> -->
   </div>
   <mat-card class="example-card" *ngFor="let movie of list" style="width: 18rem; ">
     <mat-card-header>
       <h5 class="card-title">{{movie.title}}</h5>
     </mat-card-header>
-    <!-- <img mat-card-image [src]="movie.image.url" alt="foto de la pelicula" style="height: 350px;"> -->
     <img mat-card-image [src]= "urlPath+movie.poster_path" alt="foto de la pelicula" >
     <mat-card-content>
-      <p class="card-text">Original language:{{movie.original_language}}</p>
+      <!-- <p class="card-text">Original language:{{movie.original_language}}</p> -->
     </mat-card-content>
     <mat-card-actions>
-      <button class="btnCart"  (click)="removeMovie(movie)">Delete Movie</button>
+      <button class="btnCart"  (click)="remove(movie.id)">Delete Movie</button>
     </mat-card-actions>
   </mat-card>
 </div>
