@@ -25,7 +25,7 @@ public list: MovieAPI[] = [];
   remove(id:number){
     this.cartService.removeMovie(id).subscribe(response=>{
       console.log( response)
-      this.cartService.getList().subscribe(response => this.list = response);
+      this.subscription.add(this.cartService.getList().subscribe(response => this.list = response)) ;
     });
   }
   ngOnDestroy():void{

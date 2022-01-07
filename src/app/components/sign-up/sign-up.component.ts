@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss']
 })
+
 export class SignUpComponent implements OnInit,OnDestroy{
 
 constructor(
@@ -19,14 +20,12 @@ constructor(
 
 
  //Suscripcion
- private subscription : Subscription | undefined;
+ private subscription= new Subscription;
 
+  user:User[]=[];
 
   ngOnInit(): void {
-    const user=this.newUserForm.controls['userFullName'];
-    const password=this.newUserForm.controls['password1'];
-    const mail=this.newUserForm.controls['userMail'];
-    this.subscription=this.userService.getUserList().subscribe(user=>this.user=user);
+    this.subscription.add(this.userService.getUserList().subscribe(user=>this.user=user));
   }
 
   newUserForm=new FormGroup({
@@ -43,15 +42,15 @@ constructor(
   passwordControl=this.newUserForm.controls['password1'];
   passwordConfirmControl=this.newUserForm.controls['passwordConfirm'];
 
-  user:User[]=[];
 
   createUser(){
     if (this.passwordControl.value === this. passwordConfirmControl.value ){
       const user=this.userControl.value;
-    const mail= this.mailControl.value;
-    const password= this.passwordControl.value;
-    this.registerService.createUser(user,mail,password).subscribe(response=>console.log(response));
-    this.newUserForm.reset();
+      const mail= this.mailControl.value;
+      const password= this.passwordControl.value;
+      this.subscription.add(this.registerService.createUser(user,mail,password).subscribe(response=>console.log(response)));
+      this.newUserForm.reset();
+
     alert("Registro exitoso")
     }
     else{
@@ -61,8 +60,7 @@ constructor(
 
   ngOnDestroy(): void {
     //Nos desuscribimos
-    this.subscription?.unsubscribe();
+  this.subscription.unsubscribe();
 }
-
 
 }

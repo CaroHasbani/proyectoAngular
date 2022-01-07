@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 })
 
 export class LoginComponent implements OnInit,OnDestroy {
+  ngOnInit(): void {
+  }
 
   constructor(
     private loginService:LoginService,
@@ -29,21 +31,13 @@ export class LoginComponent implements OnInit,OnDestroy {
   userControl=this.userForm.controls['user'];
   passwordControl=this.userForm.controls['password'];
 
-  ngOnInit(): void {
-    // muestro los usuarios por consola
 
-  }
-   ngOnDestroy(): void {
-    this.subscription?.unsubscribe();
-}
   loginValidate() {
     const valid = this.loginService.validateUser(this.userControl.value, this.passwordControl.value)
     if (valid) {
-      console.log("valid")
       this.router.navigate(['movies']);
     }
     else {
-      console.log("not valid")
       alert("user or password not valid, try again")
       // resetea el formulario
       this.userForm.reset();
@@ -51,6 +45,8 @@ export class LoginComponent implements OnInit,OnDestroy {
     };
 
   }
-
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
+}
 
 }

@@ -25,6 +25,14 @@
   }
   .form-group {
     margin-bottom: 1rem;
+    .label{
+      color: var(--complimentaryColor);
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: var(--complimentaryColor);
+     }
 
     ::placeholder{
       color: var(--complimentaryColor);

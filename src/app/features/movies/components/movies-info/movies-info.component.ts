@@ -1,6 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-// import { Router } from '@angular/router';
-import { Movie } from 'src/app/models/movie.model';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from '../../services/movies.service';
@@ -24,7 +22,7 @@ export class MoviesInfoComponent implements OnInit,OnDestroy {
   private sanitizer: DomSanitizer
   ) { }
 
-  private subscription : Subscription | undefined;
+  private subscription= new Subscription;
   urlPath = environment.imgAPI;
   yt=environment.YT;
 
@@ -35,18 +33,13 @@ movies!: MovieVideo;
 
   ngOnInit(): void {
     // traigo desde la api
-    this.subscription = this.movieService.getDetailAPI(this.activatedRoute.snapshot.params['id']).subscribe(
-      response => { this.movie = response;});
+    this.subscription.add(this.movieService.getDetailAPI(this.activatedRoute.snapshot.params['id']).subscribe(
+      response => { this.movie = response;}));
       // el video
-      this.subscription = this.movieService.getVideoAPI(this.activatedRoute.snapshot.params['id']).subscribe(
-        response => { this.movies = response;});
+      this.subscription.add(this.movieService.getVideoAPI(this.activatedRoute.snapshot.params['id']).subscribe(
+        response => { this.movies = response;})) ;
   }
 
-  // getVideo(){
-  //   // solo para chequear que el getVideo funcione
-  //     console.log(this.movies);
-  //     console.log(this.movies.results[0].key);
-  // }
 
   getMovieURL() {
     return this.sanitizer.bypassSecurityTrustResourceUrl(this.yt + this.movies?.results[0].key);
@@ -56,13 +49,12 @@ movies!: MovieVideo;
     const id= this.movie.id
     const title= this.movie.title
     const poster_path=this.movie.poster_path
-  this.cartService.addMovie(id, title,poster_path).subscribe(response=>console.log(response));
-  alert("movie added")
+    this.subscription.add(this.cartService.addMovie(id, title,poster_path).subscribe(response=>console.log(response)));
+  alert("movie added");
   }
 
   ngOnDestroy(): void {
-    //desuscripcion
-      this.subscription?.unsubscribe();
+      this.subscription.unsubscribe();
   }
 
 

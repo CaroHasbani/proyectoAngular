@@ -10,7 +10,6 @@ import { UserService } from './user.service';
   providedIn: 'root'
 })
 export class LoginService {
-  // private url = environment.moviesRestApi;
 
   users:User[] = [];
 
@@ -26,13 +25,9 @@ export class LoginService {
 
   validateUser(user:string,password:string): boolean {
 
-  //  console.log(this.users);
     var response: boolean = false;
 
     this.users.forEach(users => {
-      // if (usuario.email === email && usuario.password === password) {
-      //   respuesta = true;
-      // }
       if (users.user === user && users.password === password) {
         response= true;
       }

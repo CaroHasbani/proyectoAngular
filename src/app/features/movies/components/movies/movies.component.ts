@@ -24,7 +24,8 @@ export class MoviesComponent implements OnInit, OnDestroy{
   ) { }
 
 //Suscripcion
-private subscription : Subscription | undefined;
+
+private subscription= new Subscription;
 urlPath = environment.imgAPI;
 movies: MovieAPI[] = [];
 
@@ -33,16 +34,13 @@ movies: MovieAPI[] = [];
   // this.movieService.getList().subscribe( movies => this.movies = movies);
 
     // traigo las pelis desde la api
-      this.movieService.getListAPI().subscribe(response => {
+    this.subscription.add(this.movieService.getListAPI().subscribe(response => {
         this.movies = response.results;
         console.log(this.movies)
-    });
+    }));
 
   }
-  ngOnDestroy(): void {
-    //Nos desuscribimos
-    this.subscription?.unsubscribe();
-  }
+
   //navigateToDetail(id: string)
   moreInfo(id: number){
     this.router.navigate(['movies', id]);
@@ -51,4 +49,9 @@ movies: MovieAPI[] = [];
   // addToCart(id:number){
   //   this.cartService.addMovie(id);
   // }
+
+  ngOnDestroy(): void {
+    //Nos desuscribimos
+    this.subscription.unsubscribe();
+  }
 }
