@@ -1,26 +1,33 @@
+
 <div class="movie-container">
   <div class="card mb-3" >
     <div class="row g-0">
-      <div class="col-md-5">
-        <img [src]="urlPath+movie.poster_path" alt="foto de la pelicula">
+      <div class="col-md-4">
+        <img [src]="urlPath+movie.poster_path"  class="img-fluid rounded-start" alt="movie poster">
       </div>
-      <div class="col-md-6">
-        <div class="card-body">
-          <h4 class="card-title">{{ movie.title }}</h4>
-          <p class="card-text">{{movie.overview}}</p>
-          <!-- <button class="btnMovie" (click)="getVideo()">video</button> -->
+      <div class="col-md-8">
+        <div class="card-body flex-column">
+          <div class=" p-2">
+            <h4 class="card-title">{{ movie.title }}</h4>
+            <p class="card-text">{{movie.overview}}</p>
+          </div>
+        <div class="p-2 flex-lg-fill">
           <h5 class="card-title">Watch the trailer:</h5>
-           <iframe width="560" height="315" title="YouTube video player"
-           frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-           allowfullscreen="" class="desktop" [src]='getMovieURL()' ></iframe>
+          <iframe   title="YouTube video player"
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen="" class="desktop" [src]='getMovieURL()' ></iframe>
+        </div>
+        <div class="p-2">
           <p class="card-text"> Release date: {{movie.release_date}}</p>
           <p class="card-text"> Original language: {{movie. original_language}}</p>
           <button class="btnMovie" (click)="addToCart()">Add to cart</button>
+        </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 
 

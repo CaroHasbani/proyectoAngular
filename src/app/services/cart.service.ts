@@ -31,6 +31,9 @@ removeMovie(id:number):Observable<any>{
   return this.httpClient.delete<any>(`${this.url}?id=${id}`)
 }
 
+clear():Observable<any[]>{
+  return this.httpClient.get<any[]>(`${this.url}/clear`)
+}
   // clearCart(){
   //   return this.list = [];
   // }
