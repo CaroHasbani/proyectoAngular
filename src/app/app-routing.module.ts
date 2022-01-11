@@ -19,7 +19,7 @@ const routes: Routes = [
   },
   {
        path: 'movies',
-       canActivate: [UserRoleGuard],
+    //   canActivate: [UserRoleGuard],
        loadChildren: () => import('./features/movies/movies.module').then( m => m.MoviesModule)
    },
 

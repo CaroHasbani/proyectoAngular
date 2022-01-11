@@ -19,8 +19,8 @@ getList():Observable<any[]>{
   return this.httpClient.get<any[]>(this.url)
 }
 
-addMovie(id: number, title:string, poster_path:string):Observable<boolean>{
-  return this.httpClient.post<boolean>(this.url,{
+addMovie(id: number, title:string, poster_path:string):Observable<any>{
+  return this.httpClient.post<any>(this.url,{
   id,
   title,
   poster_path

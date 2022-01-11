@@ -57,9 +57,14 @@ movies!: MovieVideo;
     const id= this.movie.id
     const title= this.movie.title
     const poster_path=this.movie.poster_path
-    this.subscription.add(this.cartService.addMovie(id, title,poster_path).subscribe(response=>console.log(response)));
-  //alert("movie added");
-  Swal.fire('Congrats!', 'You added the movie!', 'success');
+    this.subscription.add(this.cartService.addMovie(id, title,poster_path).subscribe(response=>{
+      console.log(response);
+      if (response.status === "ok"){
+        Swal.fire('Congrats!', 'You added the movie!', 'success');
+      }else{
+        Swal.fire('Nope!', 'You have  already added the movie!', 'error');
+      }
+    }));
   }
 
   ngOnDestroy(): void {
