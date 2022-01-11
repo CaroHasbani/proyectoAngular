@@ -10,6 +10,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ConfigurationComponent } from './components/configuration/configuration.component';
 
 
 
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     CartComponent,
     LoginComponent,
     SignUpComponent,
-    MenuComponent
+    MenuComponent,
+    ConfigurationComponent
   ],
   imports: [
      BrowserModule,

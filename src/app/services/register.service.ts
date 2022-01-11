@@ -10,17 +10,19 @@ import { environment } from 'src/environments/environment';
 
 export class RegisterService {
 
-  private url = environment.moviesRestApi+'users';
+ // private url = environment.moviesRestApi+'users';
+  url = `${environment.restApi}login/add`
 
   constructor(
     private httpClient: HttpClient
   ) { }
 
-  createUser(user: string, mail: string, password: string): Observable<boolean>{
+  createUser(name: string, mail: string, password: string, role:string): Observable<boolean>{
     return this.httpClient.post<boolean>(this.url,{
-      user,
+      name,
       mail,
-      password
+      password,
+      role
     })
   }
 }

@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { RegisterService } from 'src/app/services/register.service';
 import { User } from 'src/app/models/user.models';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class SignUpComponent implements OnInit,OnDestroy{
 
 constructor(
     private userService: UserService,
-    private registerService: RegisterService) { }
+    private registerService: RegisterService,
+    private router: Router) { }
 
 
  //Suscripcion
@@ -45,13 +47,15 @@ constructor(
 
   createUser(){
     if (this.passwordControl.value === this. passwordConfirmControl.value ){
-      const user=this.userControl.value;
+      const name=this.userControl.value;
       const mail= this.mailControl.value;
       const password= this.passwordControl.value;
-      this.subscription.add(this.registerService.createUser(user,mail,password).subscribe(response=>console.log(response)));
+      const role= "user";
+      this.subscription.add(this.registerService.createUser(name,mail,password, role).subscribe(response=>console.log(response)));
       this.newUserForm.reset();
 
-    alert("Registro exitoso")
+    // alert("Registro exitoso")
+    this.router.navigate(['movies']);
     }
     else{
       alert("Las contraseñas no coinciden")

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './components/cart/cart.component';
+import { ConfigurationComponent } from './components/configuration/configuration.component';
 //import { MoviesComponent } from './features/movies/components/movies/movies.component';
 import { LoginComponent } from './components/login/login.component';
 //import { MoviesInfoComponent } from './components/movies-info/movies-info.component';
@@ -29,6 +30,11 @@ const routes: Routes = [
   {
     path: 'signIn',
     component: LoginComponent
+  },
+   {
+    path: 'config',
+    canActivate: [AdminRoleGuard],
+    component: ConfigurationComponent
   },
 
   {

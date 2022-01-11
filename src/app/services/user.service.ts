@@ -12,7 +12,8 @@ import { User } from '../models/user.models';
   }
 )
 export class UserService {
- private url = environment.moviesRestApi + 'users';
+//  private url = environment.moviesRestApi + 'users';
+url = `${environment.restApi}login`
   constructor(
     //inyecto httpClient
     private httpClient: HttpClient
