@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 // import { Movie } from 'src/app/models/movie.model';
-import { MovieAPI, MoviesAPI } from 'src/app/models/movieAPI.models';
+import { MovieAPI, MoviesAPI, MoviesAPIRec } from 'src/app/models/movieAPI.models';
 import { MovieVideo } from 'src/app/models/movieVideo.model';
 import { environment } from 'src/environments/environment';
 // import { MoviesModule } from '../movies.module';
@@ -14,7 +14,7 @@ export class MoviesService {
 private url = environment.movieApi;
 private parte1 = environment.firstPart;
 private parte2 = environment.lastPart;
-
+private rec=environment.recAPI;
 private last=environment.videoAPI2;
 //private yt=environment.YT;
   constructor(
@@ -39,6 +39,10 @@ private last=environment.videoAPI2;
     return this.httpClient.get<MoviesAPI>(`${this.url}/${id}`);
   }
 
+  getSimilarMovies(id: number): Observable<MoviesAPIRec> {
+    return this.httpClient.get<MoviesAPIRec>(`${this.parte1}/${id}/${this.rec}`);
+
+  }
 
 }
 

@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from '../../services/movies.service';
 import { CartService } from 'src/app/services/cart.service';
 import { environment } from 'src/environments/environment';
-import { MovieAPI } from 'src/app/models/movieAPI.models';
+import { MovieAPI, MovieAPIRec } from 'src/app/models/movieAPI.models';
 import { MovieVideo } from 'src/app/models/movieVideo.model';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -30,14 +30,23 @@ export class MoviesInfoComponent implements OnInit,OnDestroy {
 movies!: MovieVideo;
 
  movie!:MovieAPI;
+ // Rec
+ //similarMovie!:MovieAPI;
+ similarMovie: MovieAPIRec[] = [];
 
   ngOnInit(): void {
     // traigo desde la api
     this.subscription.add(this.movieService.getDetailAPI(this.activatedRoute.snapshot.params['id']).subscribe(
       response => { this.movie = response;}));
+
+
       // el video
       this.subscription.add(this.movieService.getVideoAPI(this.activatedRoute.snapshot.params['id']).subscribe(
         response => { this.movies = response;})) ;
+        // similar movies
+        this.subscription.add(this.movieService.getSimilarMovies(this.activatedRoute.snapshot.params['id']).subscribe(response => {
+          this.similarMovie = response.results;}));
+
   }
 
 

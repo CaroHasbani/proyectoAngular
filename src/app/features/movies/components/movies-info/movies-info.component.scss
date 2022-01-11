@@ -1,4 +1,4 @@
-:host {
+
 .movie-container {
   display: flex;
   margin: 20px;
@@ -63,6 +63,37 @@
 }
 }
 }
-}
 
+.similar{
+  h4{
+    color: var(--complimentaryColor);
+    font-size: 20px;
+    line-height: 1.9;
+    font-weight: bold;
+    margin-left: 20px;
+  }
+  .movie-container {
+    display: flex;
+    margin: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .example-card{
+      margin-right: 20px;
+      margin-bottom: 30px;
+      margin-bottom: 20px;
+      background-color: var(--none);
+      // border: 1px solid var(--complimentaryColor) ;
+      text-align: center;
+
+    .card-title{
+      color: var(--complimentaryColor);
+      font-size: 18px;
+      line-height: 1.9;
+      font-weight: bold;
+      text-align: start;
+    }
+  }
+  }
+}
 
