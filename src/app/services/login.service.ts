@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core'
-import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { User } from '../models/user.models';
-import { UserService } from './user.service';
+// import { User } from '../models/user.models';
+// import { UserService } from './user.service';
+import jwt_decode from 'jwt-decode';
+import { map, Observable } from 'rxjs';
 
 
 @Injectable({
@@ -11,27 +12,51 @@ import { UserService } from './user.service';
 })
 export class LoginService {
 
-  users:User[] = [];
 
-  constructor(private userService:UserService) {
-    // le asigna al array usuarios la respuesta del obser
-    this.userService.getUserList().subscribe(response => this.users = response);
+  private token: any = null;
+  private user = '';
+  private userName = '';
+  private role= '';
+
+  url = `${environment.restApi}login`
+
+  constructor(
+    private httpClient: HttpClient
+  ) { }
+
+  validateCredentials(user: string, password: string): Observable<boolean> {
+    return this.httpClient.post<any>(this.url, { user, password})
+    .pipe (
+      map(response => {
+        if (response.status === 'OK') {
+          this.token = response.token;
+          const decodedToken: any = jwt_decode(this.token);
+          this.user = decodedToken?.user;
+          this.userName = decodedToken?.userName;
+          this.role=decodedToken?.role;
+          return true;
+        } else {
+          this.token = null;
+          return false;
+        }
+      })
+    )
   }
 
-  getUsers():User[]{
-    // devuelve el usuario( el array)
-    return this.users;
+  getToken(): any {
+    return this.token;
   }
 
-  validateUser(user:string,password:string): boolean {
-
-    var response: boolean = false;
-
-    this.users.forEach(users => {
-      if (users.user === user && users.password === password) {
-        response= true;
-      }
-    });
-    return response;
+  isUserLoggedIn() {
+    return this.user !== '';
   }
+
+  getUserInfo(): any {
+    return {
+      user: this.user,
+      userName: this.userName,
+      role:this.role
+    }
+  }
+
 }

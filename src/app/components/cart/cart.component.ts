@@ -30,16 +30,10 @@ public list: MovieAPI[] = [];
   }
   clearCart(){
      this.subscription.add(this.cartService.clear().subscribe(response => this.list = response));
-    // this.subscription.add(this.cartService.clear().subscribe(response=>{
-    //   console.log( response)
-    //   this.subscription.add(this.cartService.getList().subscribe(response => this.list = response)) ;
-    // })) ;
 
   }
   ngOnDestroy():void{
     // para que se borren los datos al salir
     this.subscription.unsubscribe();
   }
-
-
 }

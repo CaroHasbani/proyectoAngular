@@ -12,5 +12,7 @@ export const environment = {
   recAPI: 'similar?api_key=fd31753f3bac10778d2c67b3ea7f76d2&language=en-US&page=1',
   YT: 'https://www.youtube.com/embed/',
   // api del carrito
-  cartRestApi: "http://localhost:3000/api/cart"
+  cartRestApi: "http://localhost:3000/api/cart",
+  // login
+  restApi:   'http://localhost:3000/api/'
 };

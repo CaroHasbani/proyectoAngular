@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { MovieAPI, MovieAPIRec } from 'src/app/models/movieAPI.models';
 import { MovieVideo } from 'src/app/models/movieVideo.model';
 import { DomSanitizer } from '@angular/platform-browser';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-movies-info',
@@ -31,7 +32,6 @@ movies!: MovieVideo;
 
  movie!:MovieAPI;
  // Rec
- //similarMovie!:MovieAPI;
  similarMovie: MovieAPIRec[] = [];
 
   ngOnInit(): void {
@@ -49,7 +49,6 @@ movies!: MovieVideo;
 
   }
 
-
   getMovieURL() {
     return this.sanitizer.bypassSecurityTrustResourceUrl(this.yt + this.movies?.results[0].key);
   }
@@ -59,26 +58,13 @@ movies!: MovieVideo;
     const title= this.movie.title
     const poster_path=this.movie.poster_path
     this.subscription.add(this.cartService.addMovie(id, title,poster_path).subscribe(response=>console.log(response)));
-  alert("movie added");
+  //alert("movie added");
+  Swal.fire('Congrats!', 'You added the movie!', 'success');
   }
 
   ngOnDestroy(): void {
       this.subscription.unsubscribe();
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
