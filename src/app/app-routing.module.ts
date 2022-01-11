@@ -6,20 +6,20 @@ import { ConfigurationComponent } from './components/configuration/configuration
 import { LoginComponent } from './components/login/login.component';
 //import { MoviesInfoComponent } from './components/movies-info/movies-info.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 import { AdminRoleGuard } from './guards/admin-role.guard';
 import { UserRoleGuard } from './guards/user-role.guard';
 
 const routes: Routes = [
 
-  //lazy loading
   {
     path: 'cart',
-    //canActivate: [UserRoleGuard],
+    canActivate: [UserRoleGuard],
     component: CartComponent
   },
   {
        path: 'movies',
-    //   canActivate: [UserRoleGuard],
+       canActivate: [UserRoleGuard],
        loadChildren: () => import('./features/movies/movies.module').then( m => m.MoviesModule)
    },
 
@@ -33,14 +33,15 @@ const routes: Routes = [
   },
    {
     path: 'config',
-   // canActivate: [AdminRoleGuard],
+    canActivate: [AdminRoleGuard],
     component: ConfigurationComponent
   },
 
   {
     path: '' ,
-    redirectTo: 'movies',
-    pathMatch: 'full'
+    // redirectTo: 'movies',
+    // pathMatch: 'full'
+    component: WelcomeComponent
   }
 ];
 

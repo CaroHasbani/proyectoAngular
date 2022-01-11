@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfigurationComponent } from './components/configuration/configuration.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 
 
@@ -21,7 +22,8 @@ import { ConfigurationComponent } from './components/configuration/configuration
     LoginComponent,
     SignUpComponent,
     MenuComponent,
-    ConfigurationComponent
+    ConfigurationComponent,
+    WelcomeComponent
   ],
   imports: [
      BrowserModule,
