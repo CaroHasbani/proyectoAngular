@@ -48,10 +48,10 @@ constructor(
   createUser(){
     if (this.passwordControl.value === this. passwordConfirmControl.value ){
       const name=this.userControl.value;
-      const mail= this.mailControl.value;
+      const email= this.mailControl.value;
       const password= this.passwordControl.value;
       const role= "user";
-      this.subscription.add(this.registerService.createUser(name,mail,password, role).subscribe(response=>console.log(response)));
+      this.subscription.add(this.registerService.createUser(name,email,password, role).subscribe(response=>console.log(response)));
       this.newUserForm.reset();
 
     // alert("Registro exitoso")

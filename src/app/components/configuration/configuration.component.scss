@@ -1,4 +1,29 @@
-p{
+.container{
   margin-top: 100px;
-  color: antiquewhite;
+  color: var(--complimentaryColor);
+  table{
+   color: var(--complimentaryColor);
+    width: 60rem;
+    text-align: start;
+    .btn {
+      background:var(--complimentaryColor);
+      padding: .375rem .75rem;
+      border: 1px solid var(--complimentaryColor);
+      border-radius: .25rem;
+      color: var(--darkNeutralColor);
+      transition: color .15s ease-in-out, background-color .15s ease-in-out;
+      margin-bottom: 10px;
+
+      &:hover{
+        padding: .375rem .75rem;
+        border: 1px solid var(--boldMainColor);
+        border-radius: .25rem;
+        color: var(--complimentaryColor);
+        background-color: var(--boldMainColor);
+        transition: color .15s ease-in-out, background-color .15s ease-in-out;
+      }
+  }
+  }
 }
+
+

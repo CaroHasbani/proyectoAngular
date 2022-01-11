@@ -14,7 +14,7 @@ const routes: Routes = [
   //lazy loading
   {
     path: 'cart',
-    canActivate: [UserRoleGuard],
+    //canActivate: [UserRoleGuard],
     component: CartComponent
   },
   {
@@ -33,7 +33,7 @@ const routes: Routes = [
   },
    {
     path: 'config',
-    canActivate: [AdminRoleGuard],
+   // canActivate: [AdminRoleGuard],
     component: ConfigurationComponent
   },
 
