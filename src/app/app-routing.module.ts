@@ -14,12 +14,12 @@ const routes: Routes = [
 
   {
     path: 'cart',
-    canActivate: [UserRoleGuard],
+    //canActivate: [UserRoleGuard],
     component: CartComponent
   },
   {
        path: 'movies',
-       canActivate: [UserRoleGuard],
+      // canActivate: [UserRoleGuard],
        loadChildren: () => import('./features/movies/movies.module').then( m => m.MoviesModule)
    },
 
@@ -33,7 +33,7 @@ const routes: Routes = [
   },
    {
     path: 'config',
-    canActivate: [AdminRoleGuard],
+  // canActivate: [AdminRoleGuard],
     component: ConfigurationComponent
   },
 

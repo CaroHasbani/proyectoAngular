@@ -38,8 +38,6 @@ movies!: MovieVideo;
     // traigo desde la api
     this.subscription.add(this.movieService.getDetailAPI(this.activatedRoute.snapshot.params['id']).subscribe(
       response => { this.movie = response;}));
-
-
       // el video
       this.subscription.add(this.movieService.getVideoAPI(this.activatedRoute.snapshot.params['id']).subscribe(
         response => { this.movies = response;})) ;
@@ -70,7 +68,5 @@ movies!: MovieVideo;
   ngOnDestroy(): void {
       this.subscription.unsubscribe();
   }
-
-
 }
 

@@ -4,7 +4,15 @@
   table{
    color: var(--complimentaryColor);
     width: 60rem;
-    text-align: start;
+   // text-align: start;
+   text-align:center;
+    input{
+     // text-align: start;
+      background-color: var(--none);
+      border: 1px solid var(--complimentaryColor);
+      margin-right: 5px;
+      color: var(--complimentaryColor);
+    }
     .btn {
       background:var(--complimentaryColor);
       padding: .375rem .75rem;

@@ -30,6 +30,7 @@ private last=environment.videoAPI2;
   getDetailAPI(id: number) : Observable<MovieAPI>{
     return this.httpClient.get<MovieAPI>(`${this.parte1}/${id}${this.parte2}`);
   }
+
   getVideoAPI(id:number):Observable<MovieVideo>{
     // hace el getVideo
     return this.httpClient.get<MovieVideo>(`${this.parte1}/${id}/${this.last}`);
@@ -41,7 +42,6 @@ private last=environment.videoAPI2;
 
   getSimilarMovies(id: number): Observable<MoviesAPIRec> {
     return this.httpClient.get<MoviesAPIRec>(`${this.parte1}/${id}/${this.rec}`);
-
   }
 
 }

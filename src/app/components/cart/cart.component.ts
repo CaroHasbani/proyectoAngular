@@ -1,7 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-
 import { MovieAPI } from 'src/app/models/movieAPI.models';
 import { CartService } from 'src/app/services/cart.service';
 import { environment } from 'src/environments/environment';
@@ -30,7 +29,6 @@ public list: MovieAPI[] = [];
   }
   clearCart(){
      this.subscription.add(this.cartService.clear().subscribe(response => this.list = response));
-
   }
   ngOnDestroy():void{
     // para que se borren los datos al salir

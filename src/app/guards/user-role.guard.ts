@@ -15,8 +15,6 @@ export class UserRoleGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
-
     const userLogin = this.loginService.isUserLoggedIn();
 
     if (!userLogin) {

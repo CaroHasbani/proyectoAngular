@@ -1,26 +1,40 @@
 <div class="container">
   <h4>A list of all de users</h4>
-  <table class="table" >
-    <thead>
-      <tr>
-        <th scope="col">{{''}}</th>
-        <th scope="col">Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Role</th>
-        <th scope="col">Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of user | slice:2:1000">
-        <th scope="row" ></th>
-        <td>{{user.name}}</td>
-        <td>{{user.email}}</td>
-        <td>{{user.role}}</td>
-        <td> <button class="btn"  (click)="remove(user.name)">Delete user</button></td>
-      </tr>
-
-    </tbody>
-  </table>
+  <div  class="row justify-content-center">
+    <table class="table" >
+      <thead>
+        <tr>
+          <th scope="col" >Id</th>
+          <th scope="col" >Name</th>
+          <th scope="col">Email</th>
+          <th scope="col" >Role</th>
+          <th scope="col" >Delete/update</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let user of user | slice:2:1000">
+            <th scope="row"  id="id">{{user.id}}</th>
+          <td>{{user.name}}
+            <ul>
+                <input type="text" name="name" id="name"  >
+            </ul>
+          </td>
+          <td>{{user.email}}
+            <ul>
+                <input type="text" name="email" id="email" >
+            </ul>
+          </td>
+          <td>{{user.role}}
+            <ul>
+                <input type="text" name="role" id="role">
+            </ul>
+          </td>
+          <td> <button class="btn" (click)="remove(user.name)">Delete user</button>
+            <button class="btn" (click)="update(user.id)">Update user</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-
 

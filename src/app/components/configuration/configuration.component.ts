@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { User } from 'src/app/models/user.models';
@@ -26,14 +26,28 @@ export class ConfigurationComponent implements OnInit, OnDestroy {
   }
 
 
-  remove(name:string){
-    this.configService.removeUser(name).subscribe(response=>{
+ // remove(id:number){
+remove(name:string){
+   // this.configService.removeUser(id).subscribe(response=>{
+      this.configService.removeUser(name).subscribe(response=>{
       console.log( response)
       this.subscription.add(this.userService.getUserList().subscribe(response => this.user = response)) ;
     });
-
-
 }
+
+
+update(id:number ){
+//const id=Number( (<HTMLInputElement>document.getElementById("id")).value);
+const name= (<HTMLInputElement>document.getElementById("name")).value;
+const email= (<HTMLInputElement>document.getElementById("email")).value;
+const role= (<HTMLInputElement>document.getElementById("role")).value;
+console.log(name);
+     this.configService.updateUser(id, name, email, role).subscribe(response=>{
+     console.log( response)
+     this.subscription.add(this.userService.getUserList().subscribe(response => this.user = response)) ;
+   });
+}
+
 ngOnDestroy(): void {
   //Nos desuscribimos
 this.subscription.unsubscribe();

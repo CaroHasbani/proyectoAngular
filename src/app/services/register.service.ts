@@ -17,8 +17,10 @@ export class RegisterService {
     private httpClient: HttpClient
   ) { }
 
-  createUser(name: string, email: string, password: string, role:string): Observable<boolean>{
-    return this.httpClient.post<boolean>(this.url,{
+  createUser(id: number, name: string, email: string, password: string, role:string): Observable<any>{
+   //  createUser( name: string, email: string, password: string, role:string): Observable<any>{
+    return this.httpClient.post<any>(this.url,{
+      id,
       name,
       email,
       password,

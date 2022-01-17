@@ -82,7 +82,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', Validators.required),
   });
 
-  //  // para controlar el form
+   // para controlar el form
   userControl=this.form.controls['user'];
   passwordControl=this.form.controls['password'];
 

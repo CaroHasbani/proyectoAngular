@@ -3,8 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +12,7 @@ export class CartService {
   constructor(
     private httpClient:HttpClient
   ) { }
+
 
 getList():Observable<any[]>{
   return this.httpClient.get<any[]>(this.url)
@@ -34,9 +33,7 @@ removeMovie(id:number):Observable<any>{
 clear():Observable<any[]>{
   return this.httpClient.get<any[]>(`${this.url}/clear`)
 }
-  // clearCart(){
-  //   return this.list = [];
-  // }
+
 }
 
 
