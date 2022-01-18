@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { MovieAPI, MovieAPIRec } from 'src/app/models/movieAPI.models';
 import { MovieVideo } from 'src/app/models/movieVideo.model';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -20,7 +21,9 @@ export class MoviesInfoComponent implements OnInit,OnDestroy {
   private movieService: MoviesService,
   private activatedRoute : ActivatedRoute,
   public cartService: CartService,
-  private sanitizer: DomSanitizer
+  private sanitizer: DomSanitizer,
+  private router: Router
+
   ) { }
 
   private subscription= new Subscription;
@@ -63,6 +66,15 @@ movies!: MovieVideo;
         Swal.fire('Nope!', 'You have  already added the movie!', 'error');
       }
     }));
+  }
+
+  redirectTo(id:number){
+    this.router.navigateByUrl('movies', {skipLocationChange: true}).then(()=>
+    this.router.navigate([ 'movies', id]));
+ }
+
+  moreInfo(id: number){
+    this.redirectTo(id);
   }
 
   ngOnDestroy(): void {

@@ -1,4 +1,5 @@
 import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { User } from 'src/app/models/user.models';
@@ -14,6 +15,9 @@ export class ConfigurationComponent implements OnInit, OnDestroy {
 
   private subscription= new Subscription;
    user: User[] = [];
+
+  public name:FormControl=new FormControl('');
+
 
   constructor(
     private userService: UserService,
@@ -38,11 +42,14 @@ remove(name:string){
 
 update(id:number ){
 //const id=Number( (<HTMLInputElement>document.getElementById("id")).value);
-const name= (<HTMLInputElement>document.getElementById("name")).value;
+console.log(this.name.value);
+
+
+ const name= (<HTMLInputElement>document.getElementById("name")).value;
 const email= (<HTMLInputElement>document.getElementById("email")).value;
 const role= (<HTMLInputElement>document.getElementById("role")).value;
-console.log(name);
-     this.configService.updateUser(id, name, email, role).subscribe(response=>{
+
+this.configService.updateUser(id, name, email, role).subscribe(response=>{
      console.log( response)
      this.subscription.add(this.userService.getUserList().subscribe(response => this.user = response)) ;
    });

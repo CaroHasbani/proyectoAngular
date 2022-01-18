@@ -38,21 +38,21 @@
       <div class="carousel-item active">
         <div class="movie-container">
           <div class="movieSimil" *ngFor="let movie of similarMovie| slice:0:7; let i=index" >
-            <img  [src]= "urlPath+movie.poster_path" alt="movie picture">
+            <img  (click)="moreInfo(movie.id)"  [src]= "urlPath+movie.poster_path" alt="movie picture" class="img">
           </div>
         </div>
       </div>
       <div class="carousel-item">
         <div class="movie-container">
           <div class="movieSimil" *ngFor="let movie of similarMovie| slice:7:14; let i=index" >
-            <img  [src]= "urlPath+movie.poster_path" alt="movie picture">
+            <img  (click)="moreInfo(movie.id)" [src]= "urlPath+movie.poster_path" alt="movie picture" class="img">
           </div>
         </div>
       </div>
       <div class="carousel-item">
         <div class="movie-container">
           <div class="movieSimil" *ngFor="let movie of similarMovie| slice:14:21; let i=index" >
-            <img  [src]= "urlPath+movie.poster_path" alt="movie picture">
+            <img  (click)="moreInfo(movie.id)" [src]= "urlPath+movie.poster_path" alt="movie picture" class="img">
           </div>
         </div>
       </div>
