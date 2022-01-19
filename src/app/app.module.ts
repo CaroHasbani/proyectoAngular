@@ -9,9 +9,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './components/menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ConfigurationComponent } from './components/configuration/configuration.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { InterceptorService } from './interceptors/interceptor.service';
 
 
 
@@ -34,7 +35,13 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
      HttpClientModule,
 
   ],
-  providers: [],
+  providers: [
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptorService,
+    multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
