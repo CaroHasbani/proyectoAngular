@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { User } from 'src/app/models/user.models';
 import { ConfigService } from 'src/app/services/config.service';
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-configuration',
@@ -16,6 +17,7 @@ export class ConfigurationComponent implements OnInit, OnDestroy {
   private subscription= new Subscription;
    user: User[] = [];
 
+ //  users!:User
 
   constructor(
     private userService: UserService,
@@ -26,7 +28,10 @@ export class ConfigurationComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription.add(this.userService.getUserList().subscribe(user=>this.user=user));
   }
-
+  public id:FormControl=new FormControl('');
+  public name:FormControl=new FormControl('');
+  public email:FormControl=new FormControl('');
+  public role:FormControl=new FormControl('');
 
  // remove(id:number){
 remove(name:string){
@@ -37,34 +42,30 @@ remove(name:string){
     });
 }
 
+getId(id:number){
+  console.log(id);
+  return id;
+  //    queda para probar otra cosa
+}
 
 
-
-public name:FormControl=new FormControl('');
-public email:FormControl=new FormControl('');
-public role:FormControl=new FormControl('');
-
-
-
-
-update(id:number ){
+update( ){
 //const id=Number( (<HTMLInputElement>document.getElementById("id")).value);
 console.log(this.name.value);
-
+const id=Number(this.id.value);
 const name=this.name.value;
 const email=this.email.value;
 const role= this.role.value;
-//  const name= (<HTMLInputElement>document.getElementById("name")).value;
-// const email= (<HTMLInputElement>document.getElementById("email")).value;
-// const role= (<HTMLInputElement>document.getElementById("role")).value;
 
-this.configService.updateUser(id, name, email, role).subscribe(response=>{
-     console.log( response)
-     this.subscription.add(this.userService.getUserList().subscribe(response => this.user = response)) ;
-   });
-this.router.navigate(['account', id]);
+this.subscription.add(this.configService.updateUser(id, name, email, role).subscribe(response=>{
+     console.log( response.status);
+     if (response.status === "Cannot find id"){
+       Swal.fire('Nop', 'Id not found, try again', 'error');
+    }
+     (this.userService.getUserList().subscribe(response => this.user = response)) ;
+   }));
+
 }
-
 ngOnDestroy(): void {
   //Nos desuscribimos
 this.subscription.unsubscribe();

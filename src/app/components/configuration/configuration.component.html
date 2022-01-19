@@ -1,20 +1,20 @@
-<!-- <div class="container">
- <div class="col-md-4">
-  <h4>A list of all de users</h4>
-  <div  class="row justify-content-center">
+
+<div class="container">
+<div class="table-responsive">
+    <h4>A list of all de users</h4>
     <table class="table" >
       <thead>
         <tr>
-          <th scope="col" >Id</th>
-          <th scope="col" >Name</th>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
           <th scope="col">Email</th>
-          <th scope="col" >Role</th>
-          <th scope="col" >Delete</th>
+          <th scope="col">Role</th>
+          <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody>
-          <tr *ngFor="let user of user | slice:2:1000">
-            <th scope="row"  id="id">{{user.id}}</th>
+        <tr *ngFor="let user of user | slice:2:1000" >
+          <th scope="row" id="id" (click)="getId(user.id)">{{user.id}}</th>
           <td>{{user.name}}
           </td>
           <td>{{user.email}}
@@ -26,77 +26,14 @@
         </tr>
       </tbody>
     </table>
-  </div>
- </div>
- <div class="col-md-8">
+
+</div>
+ <div  class="table-responsive">
   <h4>Edit user</h4>
-  <div  class="row justify-content-center">
-  <table class="table " >
-    <thead>
-      <tr>
-        <th scope="col" ></th>
-        <th scope="col" >Name</th>
-        <th scope="col">Email</th>
-        <th scope="col" >Role</th>
-        <th scope="col" >Update</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr >
-          <th scope="row" >{{''}}</th>
-        <td>  <input [formControl]= "name" type="text" name="name" id="name">   </td>
-        <td>   <input  [formControl]= "email" type="text" name="email" id="email" >  </td>
-        <td> <input  [formControl]= "role" type="text" name="role" id="role">  </td>
-        <td>
-
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  </div>
- </div>
-</div> -->
-
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 first" >
-      <h4>A list of all de users</h4>
-      <table class="table" >
-        <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Role</th>
-            <th scope="col">Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let user of user | slice:2:1000">
-            <th scope="row" id="id">{{user.id}}</th>
-            <td>{{user.name}}
-            </td>
-            <td>{{user.email}}
-            </td>
-            <td>{{user.role}}
-            </td>
-            <td> <button class="btn" (click)="remove(user.name)">Delete user</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="col-md-4 second">
-      <h4>Edit user</h4>
       <table class="table " >
         <thead>
           <tr>
-            <th scope="col" ></th>
+            <th scope="col" >Id</th>
             <th scope="col" >Name</th>
             <th scope="col">Email</th>
             <th scope="col" >Role</th>
@@ -105,20 +42,15 @@
         </thead>
         <tbody>
             <tr >
-              <th scope="row" >{{''}}</th>
+              <th scope="row" ><input [formControl]= "id" type="text" name="id" id="id"> </th>
             <td>  <input [formControl]= "name" type="text" name="name" id="name">   </td>
             <td>   <input  [formControl]= "email" type="text" name="email" id="email" >  </td>
             <td> <input  [formControl]= "role" type="text" name="role" id="role">  </td>
             <td>
+              <button class="btn" (click)="update()" >OK</button>
             </td>
           </tr>
         </tbody>
       </table>
-    </div>
-
-  </div>
+ </div>
 </div>
-
-
-
- <!-- <button class="btn" (click)="update(user.id)">Delete user</button> -->
