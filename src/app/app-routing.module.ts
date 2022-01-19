@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccountComponent } from './components/account/account.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ConfigurationComponent } from './components/configuration/configuration.component';
 //import { MoviesComponent } from './features/movies/components/movies/movies.component';
@@ -35,6 +36,11 @@ const routes: Routes = [
     path: 'config',
   // canActivate: [AdminRoleGuard],
     component: ConfigurationComponent
+  },
+  {
+    path: 'account/:id',
+  // canActivate: [AdminRoleGuard],
+    component: AccountComponent
   },
 
   {

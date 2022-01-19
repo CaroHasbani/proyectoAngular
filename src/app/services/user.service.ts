@@ -24,8 +24,8 @@ url = `${environment.restApi}login`
     return this.httpClient.get<User[]>(this.url);
   }
 
-  getById(id: string): Observable<User> {
-    return this.httpClient.get<User>(`${this.url}/${id}`);
-  }
+  // getUserById(id: string): Observable<User> {
+  //   return this.httpClient.get<User>(`${this.url}/${id}`);
+  // }
 
 }

@@ -16,8 +16,6 @@ export class ConfigurationComponent implements OnInit, OnDestroy {
   private subscription= new Subscription;
    user: User[] = [];
 
-  public name:FormControl=new FormControl('');
-
 
   constructor(
     private userService: UserService,
@@ -40,19 +38,31 @@ remove(name:string){
 }
 
 
+
+
+public name:FormControl=new FormControl('');
+public email:FormControl=new FormControl('');
+public role:FormControl=new FormControl('');
+
+
+
+
 update(id:number ){
 //const id=Number( (<HTMLInputElement>document.getElementById("id")).value);
 console.log(this.name.value);
 
-
- const name= (<HTMLInputElement>document.getElementById("name")).value;
-const email= (<HTMLInputElement>document.getElementById("email")).value;
-const role= (<HTMLInputElement>document.getElementById("role")).value;
+const name=this.name.value;
+const email=this.email.value;
+const role= this.role.value;
+//  const name= (<HTMLInputElement>document.getElementById("name")).value;
+// const email= (<HTMLInputElement>document.getElementById("email")).value;
+// const role= (<HTMLInputElement>document.getElementById("role")).value;
 
 this.configService.updateUser(id, name, email, role).subscribe(response=>{
      console.log( response)
      this.subscription.add(this.userService.getUserList().subscribe(response => this.user = response)) ;
    });
+this.router.navigate(['account', id]);
 }
 
 ngOnDestroy(): void {

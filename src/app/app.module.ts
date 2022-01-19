@@ -13,6 +13,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ConfigurationComponent } from './components/configuration/configuration.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { InterceptorService } from './interceptors/interceptor.service';
+import { AccountComponent } from './components/account/account.component';
 
 
 
@@ -24,7 +25,8 @@ import { InterceptorService } from './interceptors/interceptor.service';
     SignUpComponent,
     MenuComponent,
     ConfigurationComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    AccountComponent
   ],
   imports: [
      BrowserModule,

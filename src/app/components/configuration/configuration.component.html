@@ -1,4 +1,5 @@
-<div class="container">
+<!-- <div class="container">
+ <div class="col-md-4">
   <h4>A list of all de users</h4>
   <div  class="row justify-content-center">
     <table class="table" >
@@ -8,33 +9,116 @@
           <th scope="col" >Name</th>
           <th scope="col">Email</th>
           <th scope="col" >Role</th>
-          <th scope="col" >Delete/update</th>
+          <th scope="col" >Delete</th>
         </tr>
       </thead>
       <tbody>
           <tr *ngFor="let user of user | slice:2:1000">
             <th scope="row"  id="id">{{user.id}}</th>
           <td>{{user.name}}
-            <!-- <ul>
-                <input [formControl]= "name" type="text" name="name" id="name">
-            </ul> -->
           </td>
           <td>{{user.email}}
-            <!-- <ul>
-                <input type="text" name="email" id="email" >
-            </ul> -->
           </td>
           <td>{{user.role}}
-            <!-- <ul>
-                <input type="text" name="role" id="role">
-            </ul> -->
           </td>
           <td> <button class="btn" (click)="remove(user.name)">Delete user</button>
-            <button class="btn" (click)="update(user.id)">Update user</button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
+ </div>
+ <div class="col-md-8">
+  <h4>Edit user</h4>
+  <div  class="row justify-content-center">
+  <table class="table " >
+    <thead>
+      <tr>
+        <th scope="col" ></th>
+        <th scope="col" >Name</th>
+        <th scope="col">Email</th>
+        <th scope="col" >Role</th>
+        <th scope="col" >Update</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr >
+          <th scope="row" >{{''}}</th>
+        <td>  <input [formControl]= "name" type="text" name="name" id="name">   </td>
+        <td>   <input  [formControl]= "email" type="text" name="email" id="email" >  </td>
+        <td> <input  [formControl]= "role" type="text" name="role" id="role">  </td>
+        <td>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  </div>
+ </div>
+</div> -->
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 first" >
+      <h4>A list of all de users</h4>
+      <table class="table" >
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of user | slice:2:1000">
+            <th scope="row" id="id">{{user.id}}</th>
+            <td>{{user.name}}
+            </td>
+            <td>{{user.email}}
+            </td>
+            <td>{{user.role}}
+            </td>
+            <td> <button class="btn" (click)="remove(user.name)">Delete user</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-4 second">
+      <h4>Edit user</h4>
+      <table class="table " >
+        <thead>
+          <tr>
+            <th scope="col" ></th>
+            <th scope="col" >Name</th>
+            <th scope="col">Email</th>
+            <th scope="col" >Role</th>
+            <th scope="col" >Update</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr >
+              <th scope="row" >{{''}}</th>
+            <td>  <input [formControl]= "name" type="text" name="name" id="name">   </td>
+            <td>   <input  [formControl]= "email" type="text" name="email" id="email" >  </td>
+            <td> <input  [formControl]= "role" type="text" name="role" id="role">  </td>
+            <td>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
 </div>
 
+
+
+ <!-- <button class="btn" (click)="update(user.id)">Delete user</button> -->
