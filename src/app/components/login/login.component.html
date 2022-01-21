@@ -18,7 +18,8 @@
                 </div>
                 <div class="form-group">
                   <label class="label" for="password">Password</label>
-                  <input type="text" id="password" name="password" class="form-control" formControlName="password" placeholder="Password">
+                  <input id="password1" type="password" class="form-control" formControlName="password" placeholder="Password">
+                  <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                   <div *ngIf="passwordControl.invalid && (passwordControl.dirty ||passwordControl.touched)" class="alert alert-danger">
                     <div *ngIf="passwordControl.hasError('required')">Password is required</div>
                  </div>
