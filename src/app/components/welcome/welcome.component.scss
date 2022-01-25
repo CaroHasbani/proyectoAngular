@@ -4,19 +4,18 @@
   background-color:var(--darkNeutralColor);
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   z-index: 103;
  // border-bottom: 1px solid #222028;
+ display: flex;
+  justify-content: flex-end;
   width: 100%;
   .nav{
     color:var(--complimentaryColor);
     line-height: 1.8;
     font-weight: bolder;
-
     .nav-item{
-
       .nav-link{
-
         .btn{
             background:var(--lightNeutralColor);
             padding: .375rem .75rem;

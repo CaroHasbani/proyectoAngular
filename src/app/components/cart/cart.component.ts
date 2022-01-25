@@ -14,13 +14,17 @@ export class CartComponent implements OnInit {
 
 private subscription= new Subscription;
 public list: MovieAPI[] = [];
-
+ isNotEmpy=false;
   constructor(private cartService: CartService) { }
   urlPath = environment.imgAPI;
   ngOnInit(): void {
-    this.subscription.add(this.cartService.getList().subscribe(response => this.list = response));
+    this.subscription.add(this.cartService.getList().subscribe(response => {
+      this.list = response;
+      if (this.list.length >0){
+        this.isNotEmpy=true;
+      }
+    }));
   }
-
   remove(id:number){
     this.cartService.removeMovie(id).subscribe(response=>{
       console.log( response)

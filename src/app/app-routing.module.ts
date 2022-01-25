@@ -44,7 +44,7 @@ const routes: Routes = [
     // redirectTo: 'movies',
     // pathMatch: 'full'
     component: WelcomeComponent,
-    data:{menu:true}
+    data:{menu:false}
   }
 ];
 
