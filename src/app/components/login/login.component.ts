@@ -69,6 +69,8 @@ export class LoginComponent implements OnInit {
 
   error!: string;
 
+
+
   constructor(
     private loginService: LoginService,
     private router: Router
@@ -86,6 +88,8 @@ export class LoginComponent implements OnInit {
   userControl=this.form.controls['user'];
   passwordControl=this.form.controls['password'];
 
+
+
   submit() {
     if (this.form.valid) {
       this.loginService.validateCredentials(this.form.get('user')?.value, this.form.get('password')?.value, )
@@ -93,6 +97,7 @@ export class LoginComponent implements OnInit {
         if (valid) {
            this.router.navigate(['movies']);
          // this.router.navigate(['cart']);
+
         } else {
            this.error = 'User or Password invalid';
           this.form.reset();

@@ -13,32 +13,38 @@ const routes: Routes = [
   {
     path: 'cart',
     //canActivate: [UserRoleGuard],
-    component: CartComponent
+    component: CartComponent,
+    data:{menu:true}
   },
   {
        path: 'movies',
       // canActivate: [UserRoleGuard],
-       loadChildren: () => import('./features/movies/movies.module').then( m => m.MoviesModule)
+       loadChildren: () => import('./features/movies/movies.module').then( m => m.MoviesModule),
+       data:{menu:true}
    },
 
   {
     path: 'signUp',
-    component: SignUpComponent
+    component: SignUpComponent,
+    data:{menu:false}
   },
   {
     path: 'signIn',
-    component: LoginComponent
+    component: LoginComponent,
+    data:{menu:false}
   },
    {
     path: 'config',
   // canActivate: [AdminRoleGuard],
-    component: ConfigurationComponent
+    component: ConfigurationComponent,
+    data:{menu:true}
   },
   {
     path: '' ,
     // redirectTo: 'movies',
     // pathMatch: 'full'
-    component: WelcomeComponent
+    component: WelcomeComponent,
+    data:{menu:true}
   }
 ];
 
