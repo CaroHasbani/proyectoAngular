@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription, tap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from '../../services/movies.service';
 import { CartService } from 'src/app/services/cart.service';
@@ -9,6 +9,11 @@ import { MovieVideo } from 'src/app/models/movieVideo.model';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { CartItem } from 'src/app/components/cart/cart.model';
+import { select, Store } from '@ngrx/store';
+import { CartState } from 'src/app/components/cart/store/cart-store.models';
+import { cartItemsSelector } from 'src/app/components/cart/store/cart.selector';
+import { cartAddItem } from 'src/app/components/cart/store/cart.actions';
 
 @Component({
   selector: 'app-movies-info',
@@ -17,12 +22,22 @@ import Swal from 'sweetalert2';
 })
 export class MoviesInfoComponent implements OnInit,OnDestroy {
 
+
+//lo nuevo
+  private idSeed = 1;
+  cartItems$!: Observable<CartItem[]>;
+
+
+
   constructor(
   private movieService: MoviesService,
   private activatedRoute : ActivatedRoute,
   public cartService: CartService,
   private sanitizer: DomSanitizer,
-  private router: Router
+  private router: Router,
+
+// lo nuevo
+  private store: Store<CartState>
 
   ) { }
 
@@ -48,24 +63,42 @@ movies!: MovieVideo;
         this.subscription.add(this.movieService.getSimilarMovies(this.activatedRoute.snapshot.params['id']).subscribe(response => {
           this.similarMovie = response.results;}));
 
+// carrito
+this.cartItems$ = this.store.pipe(
+  select(cartItemsSelector),
+  tap(data => console.log(data))
+);
+
+
   }
 
   getMovieURL() {
     return this.sanitizer.bypassSecurityTrustResourceUrl(this.yt + this.movies?.results[0].key);
   }
 
-  addToCart(){
+  // addToCart(){
+  //   const id= this.movie.id
+  //   const title= this.movie.title
+  //   const poster_path=this.movie.poster_path
+  //    this.subscription.add(this.cartService.addMovie(id, title,poster_path).subscribe(response=>{
+  //     console.log(response);
+  //     if (response.status === "ok"){
+  //       Swal.fire('Congrats!', 'You added the movie!', 'success');
+  //     }else{
+  //       Swal.fire('Nope!', 'You have  already added the movie!', 'error');
+  //     }
+  //   }));
+  // }
+
+  addToCart() {
     const id= this.movie.id
     const title= this.movie.title
     const poster_path=this.movie.poster_path
-    this.subscription.add(this.cartService.addMovie(id, title,poster_path).subscribe(response=>{
-      console.log(response);
-      if (response.status === "ok"){
-        Swal.fire('Congrats!', 'You added the movie!', 'success');
-      }else{
-        Swal.fire('Nope!', 'You have  already added the movie!', 'error');
-      }
-    }));
+    const item: CartItem = { id, title, poster_path};
+  //  this.idSeed++;
+    this.store.dispatch(cartAddItem({ id,title,poster_path }));
+    Swal.fire('Congrats!', 'You added the movie!', 'success');
+    console.log(item);
   }
 
   redirectTo(id:number){

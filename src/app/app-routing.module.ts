@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CartComponent } from './components/cart/cart.component';
 import { ConfigurationComponent } from './components/configuration/configuration.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
@@ -11,9 +10,9 @@ import { UserRoleGuard } from './guards/user-role.guard';
 const routes: Routes = [
 
   {
-    path: 'cart',
     //canActivate: [UserRoleGuard],
-    component: CartComponent,
+    path: 'cart',
+    loadChildren: () => import('./components/cart/cart.module').then( m => m.CartModule),
     data:{menu:true}
   },
   {
