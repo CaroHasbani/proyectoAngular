@@ -30,7 +30,6 @@ export class CartService {
     return this.httpClient.delete<any>(this.url + '?id=' + movieId);
   }
 
-
   clear(){
     return this.httpClient.get<any>(`${this.url}/clear`)
   }

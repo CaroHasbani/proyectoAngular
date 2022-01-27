@@ -34,7 +34,6 @@ export class CartComponent implements OnInit {
     // if (cartItemsSelector.length >0){
     //   this.isNotEmpty=true;
     //   console.log( "is no empty"+ this.isNotEmpty);
-
     // }
   }
 

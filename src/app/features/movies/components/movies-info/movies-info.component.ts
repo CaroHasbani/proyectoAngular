@@ -87,10 +87,7 @@ export class MoviesInfoComponent implements OnInit, OnDestroy {
     const title = this.movie.title;
     const poster_path = this.movie.poster_path;
     // const item: CartItem = { id, title, poster_path };
-    this.store.dispatch(cartAddItem({ id, title, poster_path }),
-
-    );
-
+    this.store.dispatch(cartAddItem({ id, title, poster_path }));
     Swal.fire('Congrats!', 'You added the movie!', 'success');
     // if (status === "ok"){
     //       Swal.fire('Congrats!', 'You added the movie!', 'success');
