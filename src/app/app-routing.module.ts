@@ -4,8 +4,7 @@ import { ConfigurationComponent } from './components/configuration/configuration
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
-import { AdminRoleGuard } from './guards/admin-role.guard';
-import { UserRoleGuard } from './guards/user-role.guard';
+
 
 const routes: Routes = [
 
@@ -40,8 +39,6 @@ const routes: Routes = [
   },
   {
     path: '' ,
-    // redirectTo: 'movies',
-    // pathMatch: 'full'
     component: WelcomeComponent,
     data:{menu:false}
   }

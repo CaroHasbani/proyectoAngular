@@ -1,10 +1,8 @@
 import { createAction, props } from '@ngrx/store';
 import { CartItem } from '../cart.model';
 
-
 export const cartAddItem = createAction(
   'Cart - Add item',
-  // props<{item: CartItem}>()
   props<{id:number, title:string, poster_path:string}>()
 );
 
@@ -15,10 +13,11 @@ export const cartDeleteItem = createAction(
 
 export const cartSetContent = createAction(
   'Cart - Set cart content',
-  props<{items: CartItem[]}>()
+  props<{status:string, items: CartItem[]}>()
 );
 
 export const cartClear= createAction(
   'Cart - Clear cart',
-  props<{items: CartItem[]}>()
 )
+
+
