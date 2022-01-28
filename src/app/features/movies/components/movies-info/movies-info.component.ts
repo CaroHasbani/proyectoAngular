@@ -40,7 +40,7 @@ export class MoviesInfoComponent implements OnInit, OnDestroy {
   movies!: MovieVideo;
 
   movie!: MovieAPI;
-  // Rec
+  // Recomendaciones
   similarMovie: MovieAPIRec[] = [];
 
   ngOnInit(): void {
@@ -86,7 +86,6 @@ export class MoviesInfoComponent implements OnInit, OnDestroy {
     const id = this.movie.id;
     const title = this.movie.title;
     const poster_path = this.movie.poster_path;
-    // const item: CartItem = { id, title, poster_path };
     this.store.dispatch(cartAddItem({ id, title, poster_path }));
     Swal.fire('Congrats!', 'You added the movie!', 'success');
     // if (status === "ok"){

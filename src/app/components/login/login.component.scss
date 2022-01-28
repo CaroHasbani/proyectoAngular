@@ -1,6 +1,6 @@
-.container{
+.container {
   margin-top: 100px;
-  .formReactive{
+  .formReactive {
     .form-control {
       height: 52px;
       font-size: 16px;
@@ -12,77 +12,75 @@
       padding-left: 40px;
       padding-right: 20px;
       color: var(--complimentaryColor);
+    }
 
-  }
-
-  .checkbox-primary {
-    color: var(--complimentaryColor);
-  }
-
-  a {
-    color: var(--complimentaryColor);
-    text-decoration: none;
-  }
-  .form-group {
-    margin-bottom: 1rem;
-    .label{
-      color: var(--complimentaryColor);
-      text-transform: uppercase;
-      font-weight: 700;
-      font-size: 12px;
-      letter-spacing: 1px;
-      color: var(--complimentaryColor);
-     }
-
-    ::placeholder{
+    .checkbox-primary {
       color: var(--complimentaryColor);
     }
-    .btn.btn-primary {
-      background:var(--complimentaryColor);
-      padding: .375rem .75rem;
-      border: 1px solid var(--complimentaryColor);
-      border-radius: .25rem;
-      color: var(--darkNeutralColor);
-      transition: color .15s ease-in-out, background-color .15s ease-in-out;
-      margin-bottom: 10px;
 
-      &:hover{
-        padding: .375rem .75rem;
-        border: 1px solid var(--boldMainColor);
-        border-radius: .25rem;
+    a {
+      color: var(--complimentaryColor);
+      text-decoration: none;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+      .label {
         color: var(--complimentaryColor);
-        background-color: var(--boldMainColor);
-        transition: color .15s ease-in-out, background-color .15s ease-in-out;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: 1px;
+        color: var(--complimentaryColor);
       }
-  }
-  }
+
+      ::placeholder {
+        color: var(--complimentaryColor);
+      }
+      .btn.btn-primary {
+        background: var(--complimentaryColor);
+        padding: 0.375rem 0.75rem;
+        border: 1px solid var(--complimentaryColor);
+        border-radius: 0.25rem;
+        color: var(--darkNeutralColor);
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+        margin-bottom: 10px;
+
+        &:hover {
+          padding: 0.375rem 0.75rem;
+          border: 1px solid var(--boldMainColor);
+          border-radius: 0.25rem;
+          color: var(--complimentaryColor);
+          background-color: var(--boldMainColor);
+          transition: color 0.15s ease-in-out,
+            background-color 0.15s ease-in-out;
+        }
+      }
+    }
   }
   .login-wrap {
-  position: relative;
-  //background: var(--white);
-  border-radius: 10px;
-  -webkit-box-shadow: 0px 10px 34px -15px rgb(0 0 0 / 24%);
-  -moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
-  box-shadow: 0px 10px 34px -15px rgb(0 0 0 / 24%);
-  border: 1px solid var(--complimentaryColor);
-  .icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    font-size: 30px;
-    margin: 0 auto;
-    margin-bottom: 10px;
-     span {
-      .logo{
-        width: 80px;
-        height: 80px;
+    position: relative;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 10px 34px -15px rgb(0 0 0 / 24%);
+    -moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+    box-shadow: 0px 10px 34px -15px rgb(0 0 0 / 24%);
+    border: 1px solid var(--complimentaryColor);
+    .icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      font-size: 30px;
+      margin: 0 auto;
+      margin-bottom: 10px;
+      span {
+        .logo {
+          width: 80px;
+          height: 80px;
+        }
       }
+    }
   }
-  }
-  }
-  h3{
+  h3 {
     text-align: center;
     color: var(--complimentaryColor);
+  }
 }
-}
-

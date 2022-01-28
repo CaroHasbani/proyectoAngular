@@ -1,8 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core'
 import { environment } from 'src/environments/environment';
-// import { User } from '../models/user.models';
-// import { UserService } from './user.service';
 import jwt_decode from 'jwt-decode';
 import { map, Observable } from 'rxjs';
 

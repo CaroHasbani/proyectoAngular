@@ -23,15 +23,6 @@ export class UserRoleGuard implements CanActivate {
     console.log(userLogin)
     return true;
   }
-
-  // logout() {                            // {4}
-  //   this.userLogin.next(false);
-  //   this.router.navigate(['signIn']);
-  // }
-
-
-
-
   }
 
 

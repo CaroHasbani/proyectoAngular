@@ -6,44 +6,35 @@ import { CartService } from 'src/app/services/cart.service';
 import { MovieAPI } from 'src/app/models/movieAPI.models';
 import { environment } from 'src/environments/environment';
 
-
-
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.scss']
+  styleUrls: ['./movies.component.scss'],
 })
-export class MoviesComponent implements OnInit, OnDestroy{
-
+export class MoviesComponent implements OnInit, OnDestroy {
   constructor(
     private movieService: MoviesService,
     private router: Router,
     public cartService: CartService
-  ) { }
+  ) {}
 
-//Suscripcion
-private subscription= new Subscription;
-urlPath = environment.imgAPI;
-movies: MovieAPI[] = [];
+  //Suscripcion
+  private subscription = new Subscription();
+  urlPath = environment.imgAPI;
+  movies: MovieAPI[] = [];
 
   ngOnInit(): void {
-
     // traigo las pelis desde la api
-    this.subscription.add(this.movieService.getListAPI().subscribe(response => {
+    this.subscription.add(
+      this.movieService.getListAPI().subscribe((response) => {
         this.movies = response.results;
-        console.log(this.movies)
-    }));
-
+        console.log(this.movies);
+      })
+    );
   }
-
-  //navigateToDetail(id: string)
-  moreInfo(id: number){
+  moreInfo(id: number) {
     this.router.navigate(['movies', id]);
   }
-
-  // addToCart(id:number){
-  //   this.cartService.addMovie(id);
-  // }
 
   ngOnDestroy(): void {
     //Nos desuscribimos

@@ -16,9 +16,6 @@ export class ConfigService {
     private httpClient: HttpClient
   ) { }
 
-  // removeUser(id:number):Observable<any>{
-  //   return this.httpClient.delete<any>(`${this.url}?id=${id}`)
-  // }
 
   removeUser(name:string):Observable<any>{
     return this.httpClient.delete<any>(`${this.url}?name=${name}`)

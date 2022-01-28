@@ -5,7 +5,6 @@ import { cartReducer } from './store/cart.reducer';
 import { CartComponent } from './cart.component';
 import { CartRoutingModule } from './cart-routing.module';
 import { CartEffects } from './store/cart.effects'
-import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from 'src/app/material/material.module';
 import { CommonModule } from '@angular/common';
 

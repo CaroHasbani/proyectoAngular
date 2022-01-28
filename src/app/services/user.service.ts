@@ -8,11 +8,9 @@ import { User } from '../models/user.models';
 @Injectable(
   {
     providedIn: 'root'
-    //providedIn: AppModule
   }
 )
 export class UserService {
-//  private url = environment.moviesRestApi + 'users';
 url = `${environment.restApi}login`
   constructor(
     //inyecto httpClient
@@ -23,9 +21,5 @@ url = `${environment.restApi}login`
     // devuelve un observable con el array de usuarios de la api
     return this.httpClient.get<User[]>(this.url);
   }
-
-  // getUserById(id: string): Observable<User> {
-  //   return this.httpClient.get<User>(`${this.url}/${id}`);
-  // }
 
 }
