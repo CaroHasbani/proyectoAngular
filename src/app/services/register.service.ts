@@ -12,15 +12,12 @@ export class RegisterService {
   constructor(private httpClient: HttpClient) {}
 
   createUser(
-    id: number,
     name: string,
     email: string,
     password: string,
     role: string
   ): Observable<any> {
-    //  createUser( name: string, email: string, password: string, role:string): Observable<any>{
     return this.httpClient.post<any>(this.url, {
-      id,
       name,
       email,
       password,

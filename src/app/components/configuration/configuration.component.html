@@ -4,7 +4,6 @@
     <table class="table" >
       <thead>
         <tr>
-          <th scope="col">Id</th>
           <th scope="col">Name</th>
           <th scope="col">Email</th>
           <th scope="col">Role</th>
@@ -13,9 +12,9 @@
       </thead>
       <tbody>
         <tr *ngFor="let user of user | slice:2:1000" >
-          <th scope="row" id="id" >{{user.id}}</th>
-          <td>{{user.name}}
-          </td>
+          <th scope="row">
+            {{user.name}}
+          </th>
           <td>{{user.email}}
           </td>
           <td>{{user.role}}
@@ -32,7 +31,6 @@
       <table class="table " >
         <thead>
           <tr>
-            <th scope="col" >Id</th>
             <th scope="col" >Name</th>
             <th scope="col">Email</th>
             <th scope="col" >Role</th>
@@ -41,8 +39,7 @@
         </thead>
         <tbody>
             <tr >
-              <th scope="row" ><input [formControl]= "id" type="text" name="id" id="id"> </th>
-            <td>  <input [formControl]= "name" type="text" name="name" id="name">   </td>
+              <th scope="row" ><input [formControl]= "name" type="text" name="name" id="name"> </th>
             <td>   <input  [formControl]= "email" type="text" name="email" id="email" >  </td>
             <td> <input  [formControl]= "role" type="text" name="role" id="role">  </td>
             <td>

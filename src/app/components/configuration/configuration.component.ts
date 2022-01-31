@@ -36,9 +36,8 @@ export class ConfigurationComponent implements OnInit, OnDestroy {
   public email: FormControl = new FormControl('');
   public role: FormControl = new FormControl('');
 
-  // remove(id:number){
+
   remove(name: string) {
-    // this.configService.removeUser(id).subscribe(response=>{
     this.configService.removeUser(name).subscribe((response) => {
       console.log(response);
       this.subscription.add(

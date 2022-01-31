@@ -21,10 +21,12 @@ export class ConfigService {
     return this.httpClient.delete<any>(`${this.url}?name=${name}`)
   }
 
-  updateUser(id:number, name: string, email: string, role:string): Observable<any>{
+  // updateUser(id:number, name: string, email: string, role:string): Observable<any>{
+    updateUser(id:number, name: string, email: string, role:string): Observable<any>{
     //  createUser( name: string, email: string, password: string, role:string): Observable<any>{
-      return this.httpClient.put<any>(`${this.url}?id=${id}`,{
-        id,
+      // return this.httpClient.put<any>(`${this.url}?id=${id}`,{
+        return this.httpClient.put<any>(`${this.url}?name=${name}`,{
+        // id,
        name,
        email,
        role

@@ -49,26 +49,13 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
   createUser() {
     if (this.passwordControl.value === this.passwordConfirmControl.value) {
-      //local storage-->no me funciona :(
-      const ids = this.i++;
-      localStorage.setItem('key', JSON.stringify(ids));
-      this.arrayId.push(ids);
-      const indexOfArray = this.arrayId.indexOf(
-        Number(localStorage.getItem('key'))
-      );
-      //const indexOfArray = this.arrayId.indexOf(ids);
-      localStorage.setItem('key1', JSON.stringify(indexOfArray));
-      //  const id = this.arrayId[indexOfArray];
-      const id = Number(localStorage.getItem('key1'));
-
-      console.log(id);
       const name = this.userControl.value;
       const email = this.mailControl.value;
       const password = this.passwordControl.value;
       const role = 'user';
       this.subscription.add(
         this.registerService
-          .createUser(id, name, email, password, role)
+          .createUser( name, email, password, role)
           .subscribe((response) => {
             console.log(response);
             if (response.status === 'OK') {

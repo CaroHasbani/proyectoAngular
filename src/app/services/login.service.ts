@@ -15,7 +15,6 @@ export class LoginService {
   private user = '';
   private userName = '';
   private role= '';
-  private id= '';
 
   url = `${environment.restApi}login`
 
@@ -30,7 +29,6 @@ export class LoginService {
         if (response.status === 'OK') {
           this.token = response.token;
           const decodedToken: any = jwt_decode(this.token);
-          this.id=decodedToken?.id;
           this.user = decodedToken?.user;
           this.userName = decodedToken?.userName;
           this.role=decodedToken?.role;
