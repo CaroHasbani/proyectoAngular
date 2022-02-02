@@ -15,15 +15,19 @@ import { InterceptorService } from './interceptors/interceptor.service';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { CartModule } from './components/cart/cart.module';
+// import { CartModule } from './components/cart/cart.module';
 import { EffectsModule } from '@ngrx/effects';
+import { CartComponent } from './components/cart/cart.component';
+import { cartReducer } from './components/cart/store/cart.reducer';
+import { CartEffects } from './components/cart/store/cart.effects';
+import { CommonModule } from '@angular/common';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    // CartComponent,
+     CartComponent,
     LoginComponent,
     SignUpComponent,
     MenuComponent,
@@ -37,10 +41,13 @@ import { EffectsModule } from '@ngrx/effects';
      BrowserAnimationsModule,
      MaterialModule,
      HttpClientModule,
-    StoreModule.forRoot({ }, {}),
-    EffectsModule.forRoot([]),
+     StoreModule.forRoot({}, {}),
+     EffectsModule.forRoot([]),
+    StoreModule.forFeature('cart', cartReducer),
+     EffectsModule.forFeature([CartEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25 }),
-     CartModule
+    //  CartModule
+    CommonModule
 
   ],
   providers: [
