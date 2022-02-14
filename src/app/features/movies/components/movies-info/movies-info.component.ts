@@ -9,11 +9,12 @@ import { MovieVideo } from 'src/app/models/movieVideo.model';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { CartItem } from 'src/app/components/cart/cart.model';
 import { select, Store } from '@ngrx/store';
-import { CartState } from 'src/app/components/cart/store/cart-store.models';
-import { cartItemsSelector } from 'src/app/components/cart/store/cart.selector';
-import { cartAddItem } from 'src/app/components/cart/store/cart.actions';
+import { CartItem } from 'src/app/features/cart/cart.model';
+import { CartState } from 'src/app/features/cart/store/cart-store.models';
+import { cartItemsSelector } from 'src/app/features/cart/store/cart.selector';
+import { cartAddItem } from 'src/app/features/cart/store/cart.actions';
+
 
 @Component({
   selector: 'app-movies-info',

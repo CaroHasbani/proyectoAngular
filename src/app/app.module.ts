@@ -15,19 +15,19 @@ import { InterceptorService } from './interceptors/interceptor.service';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-// import { CartModule } from './components/cart/cart.module';
 import { EffectsModule } from '@ngrx/effects';
-import { CartComponent } from './components/cart/cart.component';
-import { cartReducer } from './components/cart/store/cart.reducer';
-import { CartEffects } from './components/cart/store/cart.effects';
+// import { CartComponent } from './components/cart/cart.component';
+// import { cartReducer } from './components/cart/store/cart.reducer';
+// import { CartEffects } from './components/cart/store/cart.effects';
 import { CommonModule } from '@angular/common';
+import { CartModule } from './features/cart/cart.module';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-     CartComponent,
+    //  CartComponent,
     LoginComponent,
     SignUpComponent,
     MenuComponent,
@@ -43,10 +43,10 @@ import { CommonModule } from '@angular/common';
      HttpClientModule,
      StoreModule.forRoot({}, {}),
      EffectsModule.forRoot([]),
-    StoreModule.forFeature('cart', cartReducer),
-     EffectsModule.forFeature([CartEffects]),
+    // StoreModule.forFeature('cart', cartReducer),
+    //  EffectsModule.forFeature([CartEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25 }),
-    //  CartModule
+     CartModule,
     CommonModule
 
   ],
