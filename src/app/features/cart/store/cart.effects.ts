@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, switchMap } from 'rxjs';
-import { CartService } from 'src/app/services/cart.service';
 import { CartItem } from '../cart.model';
+import { CartService } from '../services/cart.service';
 import {
   cartAddItem,
   cartClear,

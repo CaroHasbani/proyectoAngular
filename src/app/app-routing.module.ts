@@ -15,9 +15,6 @@ const routes: Routes = [
     path: 'cart',
     loadChildren: () => import('./features/cart/cart.module').then( m => m.CartModule),
     data:{menu:true}
-    // path: 'cart',
-    //   component: CartComponent,
-    //   data:{menu:true}
 
   },
   {

@@ -2,9 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MoviesService } from '../../services/movies.service';
-import { CartService } from 'src/app/services/cart.service';
 import { MovieAPI } from 'src/app/models/movieAPI.models';
 import { environment } from 'src/environments/environment';
+import { CartService } from 'src/app/features/cart/services/cart.service';
 
 @Component({
   selector: 'app-movies',

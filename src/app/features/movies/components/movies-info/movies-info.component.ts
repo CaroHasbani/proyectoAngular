@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription, tap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from '../../services/movies.service';
-import { CartService } from 'src/app/services/cart.service';
 import { environment } from 'src/environments/environment';
 import { MovieAPI, MovieAPIRec } from 'src/app/models/movieAPI.models';
 import { MovieVideo } from 'src/app/models/movieVideo.model';
@@ -14,6 +13,7 @@ import { CartItem } from 'src/app/features/cart/cart.model';
 import { CartState } from 'src/app/features/cart/store/cart-store.models';
 import { cartItemsSelector } from 'src/app/features/cart/store/cart.selector';
 import { cartAddItem } from 'src/app/features/cart/store/cart.actions';
+import { CartService } from 'src/app/features/cart/services/cart.service';
 
 
 @Component({

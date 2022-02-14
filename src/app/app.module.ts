@@ -16,9 +16,6 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
-// import { CartComponent } from './components/cart/cart.component';
-// import { cartReducer } from './components/cart/store/cart.reducer';
-// import { CartEffects } from './components/cart/store/cart.effects';
 import { CommonModule } from '@angular/common';
 import { CartModule } from './features/cart/cart.module';
 
@@ -27,7 +24,6 @@ import { CartModule } from './features/cart/cart.module';
 @NgModule({
   declarations: [
     AppComponent,
-    //  CartComponent,
     LoginComponent,
     SignUpComponent,
     MenuComponent,
@@ -43,8 +39,6 @@ import { CartModule } from './features/cart/cart.module';
      HttpClientModule,
      StoreModule.forRoot({}, {}),
      EffectsModule.forRoot([]),
-    // StoreModule.forFeature('cart', cartReducer),
-    //  EffectsModule.forFeature([CartEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25 }),
      CartModule,
     CommonModule
