@@ -11,15 +11,14 @@ import { UserRoleGuard } from './guards/user-role.guard';
 const routes: Routes = [
 
   {
-    canActivate: [UserRoleGuard],
+  //  canActivate: [UserRoleGuard],
     path: 'cart',
     loadChildren: () => import('./features/cart/cart.module').then( m => m.CartModule),
     data:{menu:true}
-
   },
   {
        path: 'movies',
-       canActivate: [UserRoleGuard],
+    //   canActivate: [UserRoleGuard],
        loadChildren: () => import('./features/movies/movies.module').then( m => m.MoviesModule),
        data:{menu:true}
    },

@@ -3,13 +3,17 @@ import { CartState } from './cart-store.models';
 import { cartSetContent } from './cart.actions';
 
 
-export const cartInitialState: CartState = { items: [] };
+export const cartInitialState: CartState = {
+  items: [],
+  status: ''
+};
 
 const _cartReducer = createReducer(
   cartInitialState,
-  on(cartSetContent, (state, { items }) => {
+  on(cartSetContent, (state, { status, items }) => {
       return {
       ...state,
+      status,
       items,
     };
   })

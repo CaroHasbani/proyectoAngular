@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { CartItem } from './cart.model';
 import { CartState } from './store/cart-store.models';
 import { cartClear, cartDeleteItem } from './store/cart.actions';
-import { cartItemsSelector } from './store/cart.selector';
+import { cartItemsSelector, cartStateSelector } from './store/cart.selector';
 
 @Component({
   selector: 'app-cart',
@@ -14,24 +14,19 @@ import { cartItemsSelector } from './store/cart.selector';
 })
 export class CartComponent implements OnInit {
   urlPath = environment.imgAPI;
-  // isNotEmpty=false;
+  cartItems$: Observable<CartItem[]> | any = [];
 
-  cartItems$!: Observable<CartItem[]>;
-
-  constructor(private store: Store<CartState>) {}
+  constructor(
+    private store: Store<CartState>,
+    ) {}
 
   ngOnInit(): void {
-    this.cartItems$ = this.store.pipe(
-      select(cartItemsSelector),
-      tap((data) => console.log(data))
-    );
-
-    // hay que meterlo adentro
-    // if (cartItemsSelector.length >0){
-    //   this.isNotEmpty=true;
-    //   console.log( "is no empty"+ this.isNotEmpty);
-    // }
-  }
+    this.store.pipe(
+      select(cartStateSelector),
+    ).subscribe(data => {
+      this.cartItems$ = data.items
+  });
+}
 
   removeItem(id: number) {
     this.store.dispatch(cartDeleteItem({ itemId: id }));

@@ -21,5 +21,4 @@ url = `${environment.restApi}login`
     // devuelve un observable con el array de usuarios de la api
     return this.httpClient.get<User[]>(this.url);
   }
-
 }

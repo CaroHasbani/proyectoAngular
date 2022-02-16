@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 import { select, Store } from '@ngrx/store';
 import { CartItem } from 'src/app/features/cart/cart.model';
 import { CartState } from 'src/app/features/cart/store/cart-store.models';
-import { cartItemsSelector } from 'src/app/features/cart/store/cart.selector';
+import { cartItemsSelector, cartStateSelector } from 'src/app/features/cart/store/cart.selector';
 import { cartAddItem } from 'src/app/features/cart/store/cart.actions';
 import { CartService } from 'src/app/features/cart/services/cart.service';
 
@@ -22,8 +22,7 @@ import { CartService } from 'src/app/features/cart/services/cart.service';
   styleUrls: ['./movies-info.component.scss'],
 })
 export class MoviesInfoComponent implements OnInit, OnDestroy {
-  cartItems$!: Observable<CartItem[]>;
-
+ cartItems$: CartItem[] | any = [];
   constructor(
     private movieService: MoviesService,
     private activatedRoute: ActivatedRoute,
@@ -43,7 +42,7 @@ export class MoviesInfoComponent implements OnInit, OnDestroy {
   movie!: MovieAPI;
   // Recomendaciones
   similarMovie: MovieAPIRec[] = [];
-
+  status: string= "";
   ngOnInit(): void {
     // traigo desde la api
     this.subscription.add(
@@ -75,6 +74,15 @@ export class MoviesInfoComponent implements OnInit, OnDestroy {
       select(cartItemsSelector),
       tap((data) => console.log(data))
     );
+// status de la api
+    this.store.pipe(
+      select(cartStateSelector),
+      tap(data => {
+        console.log("Answer from API", data);
+      })
+    ).subscribe(data => {
+      this.status = data.status
+  });
   }
 
   getMovieURL() {
@@ -88,12 +96,12 @@ export class MoviesInfoComponent implements OnInit, OnDestroy {
     const title = this.movie.title;
     const poster_path = this.movie.poster_path;
     this.store.dispatch(cartAddItem({ id, title, poster_path }));
-    Swal.fire('Congrats!', 'You added the movie!', 'success');
-    // if (status === "ok"){
-    //       Swal.fire('Congrats!', 'You added the movie!', 'success');
-    //     }else{
-    //       Swal.fire('Nope!', 'You have  already added the movie!', 'error');
-    //     }
+    if (this.status === "added" ){
+          Swal.fire('Congrats!', 'You added the movie!', 'success');
+        }else{
+          Swal.fire('Nope!', 'You have  already added the movie!', 'error');
+        }
+    // esto esta funcionando mal xq la primera vez que la seleccionas no te deja, recien al segundo click si
   }
 
   redirectTo(id: number) {

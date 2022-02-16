@@ -20,8 +20,8 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
   //Suscripcion
   private subscription = new Subscription();
-  private i = 1;
-  arrayId: number[] = [];
+  // private i = 1;
+  // arrayId: number[] = [];
 
   user: User[] = [];
 
@@ -59,13 +59,14 @@ export class SignUpComponent implements OnInit, OnDestroy {
           .subscribe((response) => {
             console.log(response);
             if (response.status === 'OK') {
-              this.newUserForm.reset();
+              // this.newUserForm.reset();
               this.router.navigate(['movies']);
             }
           })
       );
     } else {
       alert('Password does not match');
+      this.newUserForm.reset();
     }
   }
 
