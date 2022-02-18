@@ -34,17 +34,11 @@
       transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
     }
   }
-  .card-text {
-    color: var(--complimentaryColor);
-    font-size: 18px;
-    line-height: 1.9;
-  }
   .card-title {
     color: var(--lightNeutralColor);
     font-size: 18px;
     line-height: 1.9;
     font-weight: bold;
-    align-items: center;
   }
   .container {
     text-align: center;
